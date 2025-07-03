@@ -1,61 +1,68 @@
+/* Fondo y vídeo */
 body, html {
   margin: 0;
   padding: 0;
+  height: 100%;
   font-family: 'Arial', sans-serif;
   color: white;
-  height: 100%;
   overflow: hidden;
 }
 
 #bg-video {
   position: fixed;
-  right: 0;
-  bottom: 0;
+  top: 0;
+  left: 0;
   min-width: 100%;
   min-height: 100%;
-  z-index: -1;
   object-fit: cover;
+  z-index: -2;
 }
 
-.side-panel {
+/* Oscurece el fondo un poco */
+.overlay {
   position: fixed;
   top: 0;
-  right: 0;
-  width: 250px;
+  left: 0;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  padding: 2rem;
-  box-sizing: border-box;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+/* Contenedor de contenido */
+.content {
+  position: relative;
+  z-index: 1;
+  padding: 0 2rem;
+}
+
+/* Barra superior */
+.top-bar {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
 }
 
-.side-panel h1 {
-  margin-bottom: 2rem;
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
-.side-panel nav a {
-  display: block;
-  margin: 1rem 0;
+.menu a {
+  margin-left: 1.5rem;
   color: white;
   text-decoration: none;
+  font-weight: 500;
 }
 
+.menu a:hover {
+  text-decoration: underline;
+}
+
+/* Secciones */
 main {
-  padding: 2rem;
-  width: calc(100% - 250px);
-  height: 100%;
-  overflow-y: auto;
-}
-
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  background: url("gif.gif") no-repeat center center fixed;
-  background-size: cover;
-  height: 100vh;
-  color: white;
+  padding: 2rem 0;
+  max-width: 800px;
+  margin: auto;
 }

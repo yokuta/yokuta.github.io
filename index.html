@@ -7,33 +7,42 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- VIDEO DE FONDO -->
   <video autoplay muted loop id="bg-video">
     <source src="13646587_1920_1080_25fps.mp4" type="video/mp4" />
-    Tu navegador no soporta video.
+    Tu navegador no soporta el video.
   </video>
 
-  <div class="side-panel">
-    <h1>Tu Nombre</h1>
-    <nav>
-      <a href="#proyectos">Proyectos</a>
-      <a href="#sobre-mi">Sobre mí</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
-  </div>
+  <!-- CAPA OSCURA TRANSLÚCIDA -->
+  <div class="overlay"></div>
 
-  <main>
-    <section id="proyectos">
-      <h2>Proyectos</h2>
-      <p>...</p>
-    </section>
-    <section id="sobre-mi">
-      <h2>Sobre mí</h2>
-      <p>...</p>
-    </section>
-    <section id="contacto">
-      <h2>Contacto</h2>
-      <p>...</p>
-    </section>
-  </main>
+  <!-- CONTENIDO -->
+  <div class="content">
+    <!-- BARRA SUPERIOR -->
+    <header class="top-bar">
+      <div class="logo">MiLogo</div>
+      <nav class="menu">
+        <a href="#proyectos">Proyectos</a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </header>
+
+    <!-- Secciones -->
+    <main>
+      <section id="proyectos">
+        <h2>Proyectos</h2>
+        <p>Contenido de tus proyectos...</p>
+      </section>
+      <section id="sobre-mi">
+        <h2>Sobre mí</h2>
+        <p>Descripción sobre ti...</p>
+      </section>
+      <section id="contacto">
+        <h2>Contacto</h2>
+        <p>Email: contacto@ejemplo.com</p>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
