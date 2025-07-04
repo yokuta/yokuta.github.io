@@ -99,3 +99,17 @@ section p {
   font-weight: 300;
   line-height: 1.6;
 }
+
+.cursor-light {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 80%);
+  mix-blend-mode: screen;
+  transition: transform 0.05s ease-out;
+  z-index: 0; /* debajo del texto pero encima del video */
+}
