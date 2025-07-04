@@ -123,10 +123,6 @@ body:hover .cursor-light {
 }
 
 
-.menu a.active {
-  color: #00ffff;
-  font-weight: 700
-}
 
 .menu a.active::after {
   width: 100%; /* underline effect also shows */
