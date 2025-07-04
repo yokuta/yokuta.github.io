@@ -99,19 +99,23 @@ section p {
   font-weight: 300;
   line-height: 1.6;
 }
+
+
+
+
 .cursor-light {
   position: fixed;
   top: 0;
   left: 0;
-  width: 150px;
-  height: 150px;
+  width: 80px; /* smaller size */
+  height: 80px;
   pointer-events: none;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 80%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
   mix-blend-mode: screen;
   opacity: 0;
   transition: transform 0.05s ease-out, opacity 0.3s ease;
-  z-index: 0; /* under content, above video */
+  z-index: 0;
 }
 
 body:hover .cursor-light {
