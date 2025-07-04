@@ -99,7 +99,6 @@ section p {
   font-weight: 300;
   line-height: 1.6;
 }
-
 .cursor-light {
   position: fixed;
   top: 0;
@@ -110,6 +109,11 @@ section p {
   border-radius: 50%;
   background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 80%);
   mix-blend-mode: screen;
-  transition: transform 0.05s ease-out;
-  z-index: 0; /* debajo del texto pero encima del video */
+  opacity: 0;
+  transition: transform 0.05s ease-out, opacity 0.3s ease;
+  z-index: 0; /* under content, above video */
+}
+
+body:hover .cursor-light {
+  opacity: 1;
 }
