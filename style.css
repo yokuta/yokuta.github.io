@@ -251,7 +251,6 @@ body:hover .cursor-light {
   height: 100vh;
   object-fit: contain;
   object-position: center center;
-  background-color: black; /* to fill the space around the video if needed */
   z-index: -2;
 }
 
