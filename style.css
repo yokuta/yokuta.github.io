@@ -219,7 +219,7 @@ body:hover .cursor-light {
 
 .menu a:hover span {
   transform: rotateX(20deg);
-  color: #00ffff;
+  color: #ffffff;
 }
 
 /* Underline Effect */
@@ -230,7 +230,7 @@ body:hover .cursor-light {
   left: 0;
   height: 2px;
   width: 0%;
-  background-color: #00ffff;
+  background-color: #ffffff;
   transition: width 0.3s ease;
 }
 
@@ -240,12 +240,12 @@ body:hover .cursor-light {
 
 /* Active page highlight */
 .menu a.active span {
-  color: #00ffff;
+  color: #ffffff;
   font-weight: 700;
-  text-shadow: 0 0 10px #00ffff;
+  text-shadow: 0 0 10px #ffffff;
 }
 
 .menu a.active::after {
   width: 100%;
-  background-color: #00ffff;
+  background-color: #ffffff;
 }
