@@ -121,3 +121,20 @@ section p {
 body:hover .cursor-light {
   opacity: 1;
 }
+
+
+.menu a.active {
+  color: #00ffff;
+  font-weight: 700;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+}
+
+.menu a.active::after {
+  width: 100%; /* underline effect also shows */
+}
+
+.menu a {
+  transition: all 0.3s ease;
+}
+
+
