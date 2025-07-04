@@ -1,13 +1,18 @@
-/* GENERAL */
-body, html {
+/* ====================
+   GENERAL STYLES
+==================== */
+html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+  overflow: hidden;
   font-family: 'Inter', sans-serif;
   color: white;
-  overflow: hidden;
 }
 
+/* ====================
+   BACKGROUND VIDEO
+==================== */
 #bg-video {
   position: fixed;
   top: 0;
@@ -18,6 +23,19 @@ body, html {
   z-index: -2;
 }
 
+.bg-video-full {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill; /* use contain if you want black borders instead */
+  z-index: -2;
+}
+
+/* ====================
+   OVERLAY
+==================== */
 .overlay {
   position: fixed;
   top: 0;
@@ -28,56 +46,15 @@ body, html {
   z-index: -1;
 }
 
+/* ====================
+   MAIN CONTENT LAYOUT
+==================== */
 .content {
   position: relative;
   z-index: 1;
   padding: 0 3rem;
 }
 
-/* TOP BAR */
-.top-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2rem 0;
-}
-
-.logo {
-  font-size: 1.8rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-
-/* MENU LINKS */
-.menu a {
-  margin-left: 2rem;
-  color: white;
-  text-decoration: none;
-  font-weight: 400;
-  position: relative;
-  transition: all 0.3s ease;
-}
-
-.menu a::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  height: 2px;
-  width: 0%;
-  background-color: white;
-  transition: width 0.3s ease;
-}
-
-.menu a:hover::after {
-  width: 100%;
-}
-
-.menu a:hover {
-  color: #ccc;
-}
-
-/* SECTIONS */
 main {
   max-width: 800px;
   margin: 4rem auto;
@@ -100,39 +77,9 @@ section p {
   line-height: 1.6;
 }
 
-
-
-
-.cursor-light {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 80px; /* smaller size */
-  height: 80px;
-  pointer-events: none;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
-  mix-blend-mode: screen;
-  opacity: 0;
-  transition: transform 0.05s ease-out, opacity 0.3s ease;
-  z-index: 0;
-}
-
-body:hover .cursor-light {
-  opacity: 1;
-}
-
-
-
-.menu a.active::after {
-  width: 100%; /* underline effect also shows */
-}
-
-.menu a {
-  transition: all 0.3s ease;
-}
-
-
+/* ====================
+   HERO SECTION
+==================== */
 .hero {
   height: 80vh;
   display: flex;
@@ -147,10 +94,83 @@ body:hover .cursor-light {
   max-width: 800px;
   line-height: 1.4;
   color: #ffffff;
-  text-shadow: 0 0 10px rgba(255,255,255,0.4);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
 }
 
+/* ====================
+   TOP BAR
+==================== */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+}
 
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: white;
+}
+
+/* ====================
+   MENU LINKS
+==================== */
+.menu a {
+  display: inline-block;
+  perspective: 600px;
+  margin-left: 2rem;
+  text-decoration: none;
+  color: white;
+  font-weight: 400;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.menu a span {
+  display: inline-block;
+  transition: transform 0.4s ease, color 0.3s ease;
+  transform-origin: center bottom;
+}
+
+.menu a:hover span {
+  transform: rotateX(20deg);
+  color: #ffffff;
+}
+
+/* Underline on hover */
+.menu a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background-color: #ffffff;
+  transition: width 0.3s ease;
+}
+
+.menu a:hover::after {
+  width: 100%;
+}
+
+/* Active link */
+.menu a.active span {
+  color: #ffffff;
+  font-weight: 700;
+  text-shadow: 0 0 10px #ffffff;
+}
+
+.menu a.active::after {
+  width: 100%;
+  background-color: #ffffff;
+}
+
+/* ====================
+   PROJECTS GRID
+==================== */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -169,7 +189,7 @@ body:hover .cursor-light {
 
 .project-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 15px rgba(255,255,255,0.2);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
 }
 
 .project-card img {
@@ -193,71 +213,29 @@ body:hover .cursor-light {
 .project-card a {
   display: inline-block;
   margin-top: 0.8rem;
-  color: #00ffff;
+  color: #ffffff;
   text-decoration: none;
   font-weight: 500;
 }
 
-
-
-.menu a {
-  display: inline-block;
-  perspective: 600px;
-  margin-left: 2rem;
-  text-decoration: none;
-  color: white;
-  font-weight: 400;
-  transition: color 0.3s ease;
-  position: relative;
-}
-
-.menu a span {
-  display: inline-block;
-  transition: transform 0.4s ease, color 0.3s ease;
-  transform-origin: center bottom;
-}
-
-.menu a:hover span {
-  transform: rotateX(20deg);
-  color: #ffffff;
-}
-
-/* Underline Effect */
-.menu a::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  height: 2px;
-  width: 0%;
-  background-color: #ffffff;
-  transition: width 0.3s ease;
-}
-
-.menu a:hover::after {
-  width: 100%;
-}
-
-/* Active page highlight */
-.menu a.active span {
-  color: #ffffff;
-  font-weight: 700;
-  text-shadow: 0 0 10px #ffffff;
-}
-
-.menu a.active::after {
-  width: 100%;
-  background-color: #ffffff;
-}
-
-
-
-.bg-video-full {
+/* ====================
+   CUSTOM CURSOR
+==================== */
+.cursor-light {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: fill; /* show the full video, no cropping */
-  z-index: -2;
+  width: 80px;
+  height: 80px;
+  pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  mix-blend-mode: screen;
+  opacity: 0;
+  transition: transform 0.05s ease-out, opacity 0.3s ease;
+  z-index: 0;
+}
+
+body:hover .cursor-light {
+  opacity: 1;
 }
