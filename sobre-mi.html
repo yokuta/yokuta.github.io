@@ -1,6 +1,56 @@
-<main>
-  <section>
-    <h2>Sobre mí</h2>
-    <p>Escribe algo sobre tu experiencia, tu historia o intereses.</p>
-  </section>
-</main>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- VIDEO DE FONDO -->
+  <video autoplay muted loop id="bg-video">
+    <source src="13646587_1920_1080_25fps.mp4" type="video/mp4" />
+    Tu navegador no soporta el video.
+  </video>
+
+  <!-- CAPA OSCURA TRANSLÚCIDA -->
+  <div class="overlay"></div>
+
+  <!-- CONTENIDO -->
+  <div class="content">
+    <!-- BARRA SUPERIOR -->
+    <header class="top-bar">
+      <a class="logo" href="index.html">MiLogo</a>
+      <nav class="menu">
+        <a href="proyectos.html">Proyectos</a>
+        <a href="sobre-mi.html">Sobre mí</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+    </header>
+
+    <!-- Secciones -->
+    <main>
+        <section>
+            <h2>Sobre mí</h2>
+            <p>Soy un desarrollador creativo con pasión por la tecnología...</p>
+        </section>
+    </main>
+
+  </div>
+  <div class="cursor-light" id="cursor-light"></div>
+</body>
+</html>
+
+<script>
+  const cursor = document.getElementById('cursor-light');
+
+  document.addEventListener('mousemove', e => {
+    const x = e.clientX - cursor.offsetWidth / 2;
+    const y = e.clientY - cursor.offsetHeight / 2;
+
+    cursor.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+  });
+</script>
+
