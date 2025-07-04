@@ -9,10 +9,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- VIDEO DE FONDO -->
+  <!-- VIDEO DE FONDO 
   <video autoplay muted loop playsinline class="bg-video-full">
     <source src="14476-257440741_small.mp4" type="video/mp4" />
     Tu navegador no soporta el video.
+  </video>
+
+  --> 
+
+  <video id="video1" class="bg-video-full" autoplay muted playsinline>
+    <source src="video-original.mp4" type="video/mp4" />
+  </video>
+
+  <video id="video2" class="bg-video-full" muted playsinline style="display: none;">
+    <source src="reverse.mp4" type="video/mp4" />
   </video>
 
 
@@ -71,3 +81,23 @@
   });
 </script>
 
+
+
+<script>
+  const video1 = document.getElementById('video1');
+  const video2 = document.getElementById('video2');
+
+  video1.addEventListener('ended', () => {
+    video1.style.display = 'none';
+    video2.style.display = 'block';
+    video2.currentTime = 0;
+    video2.play();
+  });
+
+  video2.addEventListener('ended', () => {
+    video2.style.display = 'none';
+    video1.style.display = 'block';
+    video1.currentTime = 0;
+    video1.play();
+  });
+</script>
