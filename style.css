@@ -242,7 +242,7 @@ body:hover .cursor-light {
 
 
 
-
+/* Video de proyectos*/
 .bg-video-full {
   position: fixed;
   top: 0;
@@ -253,4 +253,18 @@ body:hover .cursor-light {
   object-position: center center;
   background-color: black; /* to fill the space around the video if needed */
   z-index: -2;
+}
+
+
+.bg-video-full {
+  animation: fadeLoop 10s linear infinite;
+}
+
+@keyframes fadeLoop {
+  0%, 97% {
+    opacity: 1;
+  }
+  98%, 100% {
+    opacity: 0.8;
+  }
 }
