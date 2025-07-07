@@ -1,0 +1,35 @@
+.project-article {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  background-color: rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 10px rgba(255,255,255,0.05);
+}
+
+.project-article h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+}
+
+.project-article h2 {
+  font-size: 1.6rem;
+  margin-top: 2rem;
+}
+
+.project-article p {
+  margin-bottom: 1.2rem;
+  color: #ddd;
+}
+
+.project-article img {
+  max-width: 100%;
+  display: block;
+  margin: 2rem auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}

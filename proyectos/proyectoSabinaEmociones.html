@@ -2,42 +2,43 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Proyecto - Análisis Emocional Sabina</title>
-  <link rel="stylesheet" href="../style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sabina y las Emociones</title>
+  <link rel="stylesheet" href="../cssproyectos.css" />
 </head>
 <body>
-  <div class="content">
-    <header class="top-bar">
-      <a class="logo" href="../index.html">MiLogo</a>
-      <nav class="menu">
-        <a href="../proyectos.html" class="active"><span>Proyectos</span></a>
-        <a href="../sobre-mi.html"><span>Sobre mí</span></a>
-        <a href="../contacto.html"><span>Contacto</span></a>
-      </nav>
-    </header>
+  <!-- HEADER COMÚN -->
+  <header class="top-bar">
+    <a class="logo" href="../index.html">MiLogo</a>
+    <nav class="menu">
+      <a href="../proyectos.html">Proyectos</a>
+      <a href="../sobre-mi.html">Sobre mí</a>
+      <a href="../contacto.html">Contacto</a>
+    </nav>
+  </header>
 
-    <main>
-      <section>
-        <h2>🎧 Emociones en las letras de Sabina 🎧</h2>
-        <p>
-          Este proyecto analiza los sentimientos presentes en las canciones de Joaquín Sabina, combinando web scraping, análisis de sentimiento y visualización de datos.
-        </p>
-        <h3>Etapas del análisis:</h3>
-        <ul>
-          <li><strong>Extracción de datos:</strong> Usando scraping sobre letras.com, se recopilaron letras y explicaciones.</li>
-          <li><strong>Análisis de sentimientos:</strong> Se usaron TextBlob, VADER y PySentimiento para evaluar emociones.</li>
-          <li><strong>Visualización:</strong> Diagramas de Sankey muestran emociones en letras, explicaciones y su combinación.</li>
-          <li><strong>Evolución temporal:</strong> Línea de tiempo revela cambios emocionales a lo largo de los discos de Sabina.</li>
-        </ul>
-        <p>
-          Los resultados muestran que las letras suelen ser más negativas, mientras que las explicaciones son más positivas, reflejando cómo puede diferir lo que se escribe de lo que se interpreta.
-        </p>
-        <p>
-          <strong>Repositorio del proyecto:</strong> <a href="https://lnkd.in/dF4WdrXw" target="_blank">GitHub - Análisis Sentimientos Sabina</a>
-        </p>
-      </section>
-    </main>
-  </div>
+  <!-- CONTENIDO DE ESTILO POST -->
+  <main class="project-article">
+    <h1>¿Qué nos dice la música sobre las emociones de Sabina?</h1>
+    <p>
+      En este proyecto analizo los sentimientos presentes en las canciones de Joaquín Sabina desde dos perspectivas: las letras y sus interpretaciones. Utilicé web scraping para extraer datos de <a href="https://www.letras.com" target="_blank">letras.com</a>, y apliqué técnicas de análisis de sentimientos (TextBlob, VADER y PySentimiento).
+    </p>
+
+    <img src="sabina-emociones.png" alt="Gráfico de emociones en canciones de Sabina">
+
+    <h2>Metodología</h2>
+    <p>
+      Tras extraer los datos, analicé los sentimientos, agrupé las canciones por disco y representé los resultados con Sankey diagrams y una línea temporal para visualizar la evolución emocional de su obra.
+    </p>
+
+    <h2>Conclusiones</h2>
+    <p>
+      Las letras tienden a mostrar un tono negativo, mientras que las interpretaciones son más positivas. Esto sugiere una diferencia entre la emoción original del artista y la percepción explicada.
+    </p>
+
+    <p>
+      <strong>Repositorio:</strong> <a href="https://lnkd.in/dF4WdrXw" target="_blank">Ver en GitHub</a>
+    </p>
+  </main>
 </body>
 </html>
