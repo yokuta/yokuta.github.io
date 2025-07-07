@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Proyecto - Acceso Hospitales España</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <div class="content">
+    <header class="top-bar">
+      <a class="logo" href="../index.html">MiLogo</a>
+      <nav class="menu">
+        <a href="../proyectos.html" class="active"><span>Proyectos</span></a>
+        <a href="../sobre-mi.html"><span>Sobre mí</span></a>
+        <a href="../contacto.html"><span>Contacto</span></a>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <h2>🗺️ Tiempo de Acceso a Hospitales en España 🏥</h2>
+        <p>
+          Este proyecto presenta un mapa que muestra el tiempo estimado para llegar en coche al hospital más cercano desde cada municipio de España.
+        </p>
+        <h3>Proceso de creación:</h3>
+        <ul>
+          <li><strong>Fuente de datos:</strong> Imágenes extraídas del portal SIDAMUN.</li>
+          <li><strong>Scraping automatizado:</strong> Uso de Python, Selenium y BeautifulSoup para obtener imágenes por municipio.</li>
+          <li><strong>Reconocimiento de texto (OCR):</strong> Se aplicó Tesseract y OpenCV para extraer datos numéricos.</li>
+          <li><strong>Procesamiento:</strong> Limpieza y estructuración de datos con Pandas y Numpy.</li>
+          <li><strong>Visualización geoespacial:</strong> Mapa generado en QGIS coloreado según rangos de tiempo de acceso.</li>
+        </ul>
+        <h3>Conclusiones:</h3>
+        <p>
+          En zonas rurales de España, muchas personas necesitan más de 60 minutos para llegar al hospital más cercano. Esto refleja un problema de equidad territorial y acceso a servicios básicos que refuerza el ciclo de despoblación.
+        </p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
