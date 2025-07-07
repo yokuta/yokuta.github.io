@@ -5,7 +5,6 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden;
   font-family: 'Inter', sans-serif;
   color: white;
 }
@@ -252,5 +251,14 @@ body:hover .cursor-light {
   object-fit: cover; /* Ocupa toda la pantalla sin bandas negras */
   object-position: center center;
   z-index: -2;
+}
+
+body {
+  overflow: auto;
+}
+
+
+body.scrollable {
+  overflow-y: auto;
 }
 
