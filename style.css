@@ -250,25 +250,14 @@ body:hover .cursor-light {
 
 
 
-/* Video de proyectos
+/* Video de proyectos*/
 .bg-video-full {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  object-fit: cover;
-  object-position: center center;
-  z-index: -2;
-}
-*/
-.bg-video-full {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover; /* ✅ rellena toda la pantalla */
+  object-fit: cover; /* Ocupa toda la pantalla sin bandas negras */
   object-position: center center;
   z-index: -2;
 }
