@@ -258,7 +258,7 @@ body:hover .cursor-light {
   width: 100vw;
   height: 100vh;
   object-fit: cover; /* Ocupa toda la pantalla sin bandas negras */
-  object-position: center bottom;
+  object-position: center center;
   z-index: -2;
 }
 
