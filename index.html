@@ -175,6 +175,64 @@
         font-size: 1.5rem;
       }
     }
+
+
+
+
+    /* ====================
+      MENU LINKS
+    ==================== */
+    .menu a {
+      display: inline-block;
+      perspective: 600px;
+      margin-left: 2rem;
+      text-decoration: none;
+      color: white;
+      font-weight: 400;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .menu a span {
+      display: inline-block;
+      transition: transform 0.4s ease, color 0.3s ease;
+      transform-origin: center bottom;
+    }
+
+    .menu a:hover span {
+      transform: rotateX(20deg);
+      color: #ffffff;
+    }
+
+    /* Underline on hover */
+    .menu a::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      height: 2px;
+      width: 0%;
+      background-color: #ffffff;
+      transition: width 0.3s ease;
+    }
+
+    .menu a:hover::after {
+      width: 100%;
+    }
+
+    /* Active link */
+    .menu a.active span {
+      color: #ffffff;
+      font-weight: 700;
+      text-shadow: 0 0 10px #ffffff;
+    }
+
+    .menu a.active::after {
+      width: 100%;
+      background-color: #ffffff;
+    }
+
+
   </style>
 </head>
 <body>
