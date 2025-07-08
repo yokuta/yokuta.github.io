@@ -450,3 +450,11 @@ body.scrollable {
   display: block;
 }
 
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
