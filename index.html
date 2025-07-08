@@ -50,7 +50,7 @@
     .content {
       position: relative;
       z-index: 1;
-      padding: 0 3rem;
+      padding: 0 0 0 0;
       width: 100%;
       height: 100vh;
     }
@@ -59,7 +59,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 2rem 0;
+      padding: 2rem 3rem;
     }
 
     .logo {
@@ -83,15 +83,17 @@
       align-items: center;
       justify-content: flex-start;
       position: relative;
+      padding-left: 0;
     }
 
     .intro-text {
       text-align: left;
-      padding-left: 2vw;
+      padding-left: 0;
+      margin-left: 50px;
       position: relative;
       z-index: 10;
-      width: 100%;
-      max-width: 600px;
+      width: auto;
+      max-width: none;
     }
 
     .intro-text span {
@@ -197,7 +199,7 @@
 
     // Máquina de escribir
     const text1 = "¡Hola!";
-    const text2 = "Soy Juan, explorador de datos y tranvías 🛤️";
+    const text2 = "Soy Pedro, explorador de datos y tranvías 🛤️";
 
     const line1 = document.getElementById("line1");
     const line2 = document.getElementById("line2");
