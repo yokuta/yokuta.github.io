@@ -213,68 +213,70 @@
   <div class="cursor-light" id="cursor-light"></div>
 
   <!-- SCRIPT -->
-  <script>
-    // Cursor animado
-    const cursor = document.getElementById('cursor-light');
-    document.addEventListener('mousemove', e => {
-      const x = e.clientX - cursor.offsetWidth / 2;
-      const y = e.clientY - cursor.offsetHeight / 2;
-      cursor.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-    });
+<script>
+  // Cursor animado
+  const cursor = document.getElementById('cursor-light');
+  document.addEventListener('mousemove', e => {
+    const x = e.clientX - cursor.offsetWidth / 2;
+    const y = e.clientY - cursor.offsetHeight / 2;
+    cursor.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+  });
 
-    // Máquina de escribir
-    const text1 = "¡Hola!";
-    const text2 = "Soy Juan, esta web esta en proceso";
-    const text3 = " en proceso";
+  // Máquina de escribir
+  const text1 = "¡Hola!";
+  const text2 = "Soy Juan, esta web está...";
+  const text3 = "...en proceso";
 
-    const line1 = document.getElementById("line1");
-    const line2 = document.getElementById("line2");
-    const line3 = document.getElementById("line3");
+  const line1 = document.getElementById("line1");
+  const line2 = document.getElementById("line2");
+  const line3 = document.getElementById("line3");
 
-    let i1 = 0;
-    let i2 = 0;
-    let i3 = 1;
-    function typeLine1() {
-      if (i1 < text1.length) {
-        line1.textContent += text1.charAt(i1);
-        i1++;
-        setTimeout(typeLine1, 150);
-        i3 = 0
-      } else {
-        line1.style.opacity = 1;
-        setTimeout(typeLine2, 80);
-      }
+  let i1 = 0, i2 = 0, i3 = 0;
+
+  function typeLine1() {
+    if (i1 < text1.length) {
+      line1.textContent += text1.charAt(i1);
+      i1++;
+      setTimeout(typeLine1, 180); // Más lento
+    } else {
+      line1.style.opacity = 1;
+      setTimeout(typeLine2, 500); // Espera antes de la siguiente línea
     }
+  }
 
-    function typeLine2() {
-      if (i2 < text2.length && i3 == 0) {
-        line2.textContent += text2.charAt(i2);
-        i2++;
-        setTimeout(typeLine2, 50);
-      } 
+  function typeLine2() {
+    if (i2 < text2.length) {
+      line2.textContent += text2.charAt(i2);
+      i2++;
+      setTimeout(typeLine2, 80);
+    } else {
+      line2.style.opacity = 1;
+      setTimeout(typeLine3, 500); // Espera antes de la tercera línea
     }
-    
-    function typeLine3() {
-      if (i3 < text2.length) {
-        line3.textContent += text3.charAt(i3);
-        i3++;
-        setTimeout(typeLine3, 50);
-      } else {
-        document.getElementById("email").classList.add("show");
+  }
 
-      }
+  function typeLine3() {
+    if (i3 < text3.length) {
+      line3.textContent += text3.charAt(i3);
+      i3++;
+      setTimeout(typeLine3, 80);
+    } else {
+      line3.style.opacity = 1;
+      document.getElementById("email").classList.add("show");
     }
+  }
 
-    setTimeout(typeLine1, 500);
+  // Iniciar animación
+  setTimeout(typeLine1, 500);
 
-    // Redirección con fade
+  // Redirección con fade
+  setTimeout(() => {
+    document.body.classList.add("fade-out");
     setTimeout(() => {
-      document.body.classList.add("fade-out");
-      setTimeout(() => {
-        window.location.href = "proyectos.html";
-      }, 1000);
-    }, 15000);
-  </script>
+      window.location.href = "proyectos.html";
+    }, 1000);
+  }, 15000);
+</script>
 
 </body>
 </html>

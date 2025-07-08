@@ -1,0 +1,103 @@
+/* ---------------------------
+   ESTILO GENERAL DEL PROYECTO
+---------------------------- */
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #0e0e0e;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+.content {
+  max-width: 960px;
+  margin: auto;
+  padding: 3rem 1.5rem;
+}
+
+h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: #ffdd57;
+}
+
+h3 {
+  margin-top: 2rem;
+  color: #dddddd;
+}
+
+p, li {
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+ul {
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.7rem;
+}
+
+/* ---------------------------
+   IMÁGENES DEL PROYECTO
+---------------------------- */
+.project-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.project-images img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(255,255,255,0.1);
+  transition: transform 0.3s ease;
+}
+
+.project-images img:hover {
+  transform: scale(1.03);
+}
+
+/* ---------------------------
+   BOTONES SOCIALES
+---------------------------- */
+.project-links {
+  margin-top: 2.5rem;
+}
+
+.project-links a {
+  display: inline-block;
+  margin-right: 1rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease;
+  color: white;
+  background: #333;
+}
+
+.project-links a.github:hover {
+  background-color: #24292e;
+}
+
+.project-links a.linkedin:hover {
+  background-color: #0077b5;
+}
+
+/* ---------------------------
+   RESPONSIVE
+---------------------------- */
+@media (max-width: 768px) {
+  h2 {
+    font-size: 1.8rem;
+  }
+  .project-images {
+    flex-direction: column;
+  }
+}
