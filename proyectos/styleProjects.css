@@ -118,115 +118,6 @@
   }
 
 
-
-
-  /* ====================
-   GENERAL STYLES
-==================== */
-html {
-  margin: 0;
-  padding: 0;
-  font-family: 'Inter', sans-serif;
-  color: white;
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  color: white;
-  overflow-y: hidden;
-  min-height: 100vh;
-}
-
-
-/* ====================
-   BACKGROUND VIDEO
-==================== */
-#bg-video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  min-height: 100%;
-  object-fit: cover;
-  z-index: -2;
-}
-
-.bg-video-full {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: fill; /* use contain if you want black borders instead */
-  z-index: -2;
-}
-
-/* ====================
-   OVERLAY
-==================== */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: -1;
-}
-
-/* ====================
-   MAIN CONTENT LAYOUT
-==================== */
-.content {
-  position: relative;
-  z-index: 1;
-  padding: 0 3rem;
-}
-
-main {
-  max-width: 800px;
-  margin: 0 auto;
-  padding-bottom: 5rem;
-}
-
-section {
-  margin-bottom: 4rem;
-}
-
-section h2 {
-  font-size: 2.2rem;
-  margin-bottom: 0.5rem;
-  font-weight: 700;
-}
-
-section p {
-  font-size: 1.1rem;
-  font-weight: 300;
-  line-height: 1.6;
-}
-
-/* ====================
-   HERO SECTION
-==================== */
-.hero {
-  height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.hero h1 {
-  font-size: 2.5rem;
-  font-weight: 500;
-  max-width: 800px;
-  line-height: 1.4;
-  color: #ffffff;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
-}
-
 /* ====================
    TOP BAR
 ==================== */
@@ -234,7 +125,7 @@ section p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 3rem; /* ← este 3rem iguala el .content */
+  padding: 2rem 0; /* ← este 3rem iguala el .content */
 }
 
 
@@ -400,61 +291,3 @@ body.scrollable {
 
 
 
-
-.intro-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  height: 100vh;
-  padding-left: 2vw;
-}
-
-#typewriter {
-  font-size: 1.8rem; /* antes 2.8rem */
-  font-weight: 400;
-  white-space: pre-line;
-  line-height: 1.6;
-}
-
-
-.email {
-  font-size: 1.2rem;
-  color: #ffdd57; /* o el color que prefieras */
-  margin-top: 1rem;
-  opacity: 0;
-  transition: opacity 1s ease;
-}
-
-.email.show {
-  opacity: 1;
-}
-
-.email.hidden {
-  display: block;
-  opacity: 0;
-}
-
-
-
-.project-card img {
-  width: 100%;
-  height: 200px; /* Ajusta según preferencia */
-  object-fit: cover;
-  border-radius: 8px; /* opcional, solo para estética */
-  display: block;
-}
-
-
-.logo {
-  display: block;
-}
-
-.container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 3rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
