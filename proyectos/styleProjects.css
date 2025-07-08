@@ -1,4 +1,131 @@
-/* ====================
+  /* ---------------------------
+    ESTILO GENERAL DEL PROYECTO
+  ---------------------------- */
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0e0e0e;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+  }
+
+  .content {
+    max-width: 960px;
+    margin: auto;
+    padding: 3rem 1.5rem;
+  }
+
+  h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    color: #ffdd57;
+  }
+
+  h3 {
+    margin-top: 2rem;
+    color: #dddddd;
+  }
+
+  p, li {
+    font-size: 1.1rem;
+    color: #ccc;
+  }
+
+  ul {
+    padding-left: 1.5rem;
+  }
+
+  li {
+    margin-bottom: 0.7rem;
+  }
+
+  /* ---------------------------
+    IMÁGENES DEL PROYECTO
+  ---------------------------- */
+  .project-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .project-images img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(255,255,255,0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .project-images img:hover {
+    transform: scale(1.03);
+  }
+
+  /* ---------------------------
+    BOTONES SOCIALES
+  ---------------------------- */
+  .project-links {
+    margin-top: 2.5rem;
+  }
+
+  .project-links a {
+    display: inline-block;
+    margin-right: 1rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s ease;
+    color: white;
+    background: #333;
+  }
+
+  .project-links a.github:hover {
+    background-color: #24292e;
+  }
+
+  .project-links a.linkedin:hover {
+    background-color: #0077b5;
+  }
+
+  /* ---------------------------
+    RESPONSIVE
+  ---------------------------- */
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 1.8rem;
+    }
+    .project-images {
+      flex-direction: column;
+    }
+  }
+
+
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 3rem;
+  }
+  .logo-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+      display: block;
+  }
+
+
+  .logo {
+  display: block;
+  }
+
+
+
+
+  /* ====================
    GENERAL STYLES
 ==================== */
 html {
@@ -10,32 +137,34 @@ html {
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: #0e0e0e;
-  color: #ffffff;
   margin: 0;
   padding: 0;
-  line-height: 1.6;
-  overflow: auto;
+  color: white;
+  overflow-y: hidden;
   min-height: 100vh;
 }
 
-body.scrollable {
-  overflow-y: auto;
-}
 
 /* ====================
    BACKGROUND VIDEO
 ==================== */
-#bg-video,
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
 .bg-video-full {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  object-position: center center;
+  width: 100%;
+  height: 100%;
+  object-fit: fill; /* use contain if you want black borders instead */
   z-index: -2;
 }
 
@@ -56,11 +185,9 @@ body.scrollable {
    MAIN CONTENT LAYOUT
 ==================== */
 .content {
-  max-width: 960px;
-  margin: auto;
-  padding: 3rem 1.5rem;
   position: relative;
   z-index: 1;
+  padding: 0 3rem;
 }
 
 main {
@@ -75,21 +202,14 @@ section {
 
 section h2 {
   font-size: 2.2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   font-weight: 700;
-  color: #ffdd57;
 }
 
 section p {
   font-size: 1.1rem;
   font-weight: 300;
   line-height: 1.6;
-  color: #ccc;
-}
-
-h3 {
-  margin-top: 2rem;
-  color: #dddddd;
 }
 
 /* ====================
@@ -119,27 +239,15 @@ h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 3rem;
-}
-
-.logo,
-.logo-img {
-  text-decoration: none;
-  display: block;
-  border-radius: 50%;
-  object-fit: cover;
+  padding: 2rem 0;
 }
 
 .logo {
   font-size: 1.8rem;
   font-weight: 700;
   letter-spacing: 1px;
+  text-decoration: none;
   color: white;
-}
-
-.logo-img {
-  width: 60px;
-  height: 60px;
 }
 
 /* ====================
@@ -167,6 +275,7 @@ h3 {
   color: #ffffff;
 }
 
+/* Underline on hover */
 .menu a::after {
   content: "";
   position: absolute;
@@ -182,6 +291,7 @@ h3 {
   width: 100%;
 }
 
+/* Active link */
 .menu a.active span {
   color: #ffffff;
   font-weight: 700;
@@ -219,11 +329,9 @@ h3 {
 
 .project-card img {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
+  height: auto;
   border-radius: 8px;
   margin-bottom: 0.8rem;
-  display: block;
 }
 
 .project-card h3 {
@@ -243,55 +351,6 @@ h3 {
   color: #ffffff;
   text-decoration: none;
   font-weight: 500;
-}
-
-/* ====================
-   PROJECT IMAGES
-==================== */
-.project-images {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 2rem;
-}
-
-.project-images img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 0 15px rgba(255,255,255,0.1);
-  transition: transform 0.3s ease;
-}
-
-.project-images img:hover {
-  transform: scale(1.03);
-}
-
-/* ====================
-   SOCIAL LINKS
-==================== */
-.project-links {
-  margin-top: 2.5rem;
-}
-
-.project-links a {
-  display: inline-block;
-  margin-right: 1rem;
-  padding: 0.6rem 1.2rem;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: background 0.3s ease;
-  color: white;
-  background: #333;
-}
-
-.project-links a.github:hover {
-  background-color: #24292e;
-}
-
-.project-links a.linkedin:hover {
-  background-color: #0077b5;
 }
 
 /* ====================
@@ -316,14 +375,82 @@ body:hover .cursor-light {
   opacity: 1;
 }
 
-/* ====================
-   RESPONSIVE
-==================== */
-@media (max-width: 768px) {
-  h2 {
-    font-size: 1.8rem;
-  }
-  .project-images {
-    flex-direction: column;
-  }
+
+
+/* Video de proyectos*/
+.bg-video-full {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover; /* Ocupa toda la pantalla sin bandas negras */
+  object-position: center center;
+  z-index: -2;
 }
+
+
+
+
+body {
+  overflow: auto;
+}
+
+
+body.scrollable {
+  overflow-y: auto;
+}
+
+
+
+
+
+.intro-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100vh;
+  padding-left: 2vw;
+}
+
+#typewriter {
+  font-size: 1.8rem; /* antes 2.8rem */
+  font-weight: 400;
+  white-space: pre-line;
+  line-height: 1.6;
+}
+
+
+.email {
+  font-size: 1.2rem;
+  color: #ffdd57; /* o el color que prefieras */
+  margin-top: 1rem;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.email.show {
+  opacity: 1;
+}
+
+.email.hidden {
+  display: block;
+  opacity: 0;
+}
+
+
+
+.project-card img {
+  width: 100%;
+  height: 200px; /* Ajusta según preferencia */
+  object-fit: cover;
+  border-radius: 8px; /* opcional, solo para estética */
+  display: block;
+}
+
+
+.logo {
+  display: block;
+}
+
