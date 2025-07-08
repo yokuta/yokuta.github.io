@@ -284,15 +284,16 @@ body.scrollable {
   align-items: flex-start;
   justify-content: center;
   height: 100vh;
-  padding-left: 5vw;
+  padding-left: 2vw;
 }
 
 #typewriter {
-  font-size: 2.8rem;
-  font-weight: 500;
-  white-space: pre-line; /* permite saltos de línea con \n */
+  font-size: 1.8rem; /* antes 2.8rem */
+  font-weight: 400;
+  white-space: pre-line;
   line-height: 1.6;
 }
+
 
 .email {
   font-size: 1.2rem;
@@ -310,3 +311,8 @@ body.scrollable {
   display: block;
   opacity: 0;
 }
+
+
+
+
+
