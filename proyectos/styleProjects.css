@@ -230,14 +230,12 @@ section p {
 /* ====================
    TOP BAR
 ==================== */
-
 .top-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 2rem 0;
 }
-
 
 .logo {
   font-size: 1.8rem;
