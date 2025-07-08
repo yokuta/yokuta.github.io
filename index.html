@@ -88,12 +88,12 @@
 
     .intro-text {
       text-align: left;
-      padding-left: 0;
-      margin-left: 50px;
+      padding-left: 4rem; /* Aumenté el padding para separar más del borde */
+      margin-left: 0; /* Eliminé el margin-left para que esté más pegado al borde */
       position: relative;
       z-index: 10;
       width: auto;
-      max-width: none;
+      max-width: 60%; /* Limité el ancho para que no ocupe toda la pantalla */
     }
 
     .intro-text span {
@@ -148,6 +148,22 @@
     body:hover .cursor-light {
       opacity: 1;
     }
+
+    /* Responsive para móviles */
+    @media (max-width: 768px) {
+      .intro-text {
+        padding-left: 2rem;
+        max-width: 90%;
+      }
+      
+      .intro-text .big {
+        font-size: 3rem;
+      }
+      
+      .intro-text .small {
+        font-size: 1.5rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -199,7 +215,7 @@
 
     // Máquina de escribir
     const text1 = "¡Hola!";
-    const text2 = "Soy Pedro, explorador de datos y tranvías 🛤️";
+    const text2 = "Soy Juan, explorador de datos y tranvías 🛤️";
 
     const line1 = document.getElementById("line1");
     const line2 = document.getElementById("line2");
