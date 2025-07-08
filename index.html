@@ -203,6 +203,7 @@
         <div class="intro-text-left">
           <span class="big" id="line1"></span>
           <span class="small" id="line2"></span>
+          <span class="small" id="line3"></span>
           <span class="email" id="email">luis@ejemplo.com</span>
         </div>
       </section>
@@ -223,19 +224,22 @@
 
     // Máquina de escribir
     const text1 = "¡Hola!";
-    const text2 = "Raquel? me estas espiando?";
+    const text2 = "Soy Juan, esta web esta en proceso";
+    const text3 = " en proceso";
 
     const line1 = document.getElementById("line1");
     const line2 = document.getElementById("line2");
+    const line3 = document.getElementById("line3");
 
     let i1 = 0;
     let i2 = 0;
-
+    let i3 = 1;
     function typeLine1() {
       if (i1 < text1.length) {
         line1.textContent += text1.charAt(i1);
         i1++;
         setTimeout(typeLine1, 150);
+        i3 = 0
       } else {
         line1.style.opacity = 1;
         setTimeout(typeLine2, 80);
@@ -243,10 +247,18 @@
     }
 
     function typeLine2() {
-      if (i2 < text2.length) {
+      if (i2 < text2.length && i3 == 0) {
         line2.textContent += text2.charAt(i2);
         i2++;
         setTimeout(typeLine2, 50);
+      } 
+    }
+    
+    function typeLine3() {
+      if (i3 < text2.length) {
+        line3.textContent += text3.charAt(i3);
+        i3++;
+        setTimeout(typeLine3, 50);
       } else {
         document.getElementById("email").classList.add("show");
 
