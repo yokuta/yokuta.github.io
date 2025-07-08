@@ -7,6 +7,15 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
+    body {
+      margin: 0;
+      padding: 0;
+      color: white;
+      overflow: hidden;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Fade out */
     .fade-out {
       animation: fadeOut 1s ease forwards;
     }
@@ -17,62 +26,127 @@
       }
     }
 
-    .intro-text {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      height: 100vh;
-      padding-left: 6vw;
-      text-align: left;
+    /* Fondo de video */
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -2;
     }
 
-    .intro-text h1 {
-      margin: 0;
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      padding: 0 3rem;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 0;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
       color: white;
-      line-height: 1.5;
+    }
+
+    .menu a {
+      margin-left: 2rem;
+      text-decoration: none;
+      color: white;
+      font-weight: 400;
+      transition: color 0.3s ease;
+    }
+
+    /* Intro Hero */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .intro-text {
+      text-align: left;
+      padding-left: 6vw;
+    }
+
+    .intro-text span {
+      display: block;
+      opacity: 0;
     }
 
     .intro-text .big {
       font-size: 4rem;
       font-weight: 700;
-      display: block;
-      opacity: 0;
-      animation: fadeIn 1s ease-in-out forwards;
+      animation: fadeIn 1s forwards;
       animation-delay: 0.5s;
     }
 
     .intro-text .small {
       font-size: 2rem;
       font-weight: 400;
-      display: block;
-      opacity: 0;
-      animation: fadeIn 1s ease-in-out forwards;
-      animation-delay: 1.5s;
+      animation: fadeIn 1s forwards;
+      animation-delay: 2s;
     }
 
     .intro-text .email {
       font-size: 1.2rem;
       color: #ccc;
-      display: block;
-      opacity: 0;
-      animation: fadeIn 1s ease-in-out forwards;
-      animation-delay: 2.5s;
+      animation: fadeIn 1s forwards;
+      animation-delay: 4s;
     }
 
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    /* Cursor personalizado opcional */
+    .cursor-light {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 80px;
+      height: 80px;
+      pointer-events: none;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+      mix-blend-mode: screen;
+      opacity: 0;
+      transition: transform 0.05s ease-out, opacity 0.3s ease;
+      z-index: 0;
+    }
+
+    body:hover .cursor-light {
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
+
   <!-- VIDEO DE FONDO -->
   <video autoplay muted loop id="bg-video">
     <source src="13646587_1920_1080_25fps.mp4" type="video/mp4" />
     Tu navegador no soporta el video.
   </video>
 
-  <!-- CAPA OSCURA TRANSLÚCIDA -->
+  <!-- CAPA OSCURA -->
   <div class="overlay"></div>
 
   <!-- CONTENIDO -->
@@ -87,13 +161,13 @@
       </nav>
     </header>
 
-    <!-- Intro -->
+    <!-- HERO PRINCIPAL -->
     <main>
-
       <section class="hero">
-        <div class="intro-container">
-          <h1 id="typewriter"></h1>
-          <p class="email hidden" id="email">pepe@ejemplo.com</p>
+        <div class="intro-text">
+          <span class="big" id="line1"></span>
+          <span class="small" id="line2"></span>
+          <span class="email" id="email">pepe@ejemplo.com</span>
         </div>
       </section>
     </main>
@@ -101,7 +175,7 @@
 
   <div class="cursor-light" id="cursor-light"></div>
 
-  <!-- Scripts -->
+  <!-- SCRIPT -->
   <script>
     // Cursor animado
     const cursor = document.getElementById('cursor-light');
@@ -111,49 +185,47 @@
       cursor.style.transform = `translate3d(${x}px, ${y}px, 0)`;
     });
 
-    // Redirección con efecto fade-out
+    // Máquina de escribir
+    const text1 = "¡Hola!";
+    const text2 = "Soy Juan, explorador de datos y tranvías 🛤️";
+
+    const line1 = document.getElementById("line1");
+    const line2 = document.getElementById("line2");
+
+    let i1 = 0;
+    let i2 = 0;
+
+    function typeLine1() {
+      if (i1 < text1.length) {
+        line1.textContent += text1.charAt(i1);
+        i1++;
+        setTimeout(typeLine1, 100);
+      } else {
+        line1.style.opacity = 1;
+        setTimeout(typeLine2, 500);
+      }
+    }
+
+    function typeLine2() {
+      if (i2 < text2.length) {
+        line2.textContent += text2.charAt(i2);
+        i2++;
+        setTimeout(typeLine2, 50);
+      } else {
+        document.getElementById("email").style.opacity = 1;
+      }
+    }
+
+    setTimeout(typeLine1, 500);
+
+    // Redirección con fade
     setTimeout(() => {
       document.body.classList.add("fade-out");
       setTimeout(() => {
         window.location.href = "proyectos.html";
-      }, 1000); // 1s para el fade
-    }, 15000); // Espera de 15s antes de redirigir
+      }, 1000);
+    }, 15000);
   </script>
+
 </body>
 </html>
-
-
-<script>
-  const cursor = document.getElementById('cursor-light');
-  document.addEventListener('mousemove', e => {
-    const x = e.clientX - cursor.offsetWidth / 2;
-    const y = e.clientY - cursor.offsetHeight / 2;
-    cursor.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-  });
-
-  // Texto con saltos de línea
-  const text = "¡Hola!\nSoy Juan, explorador de datos y tranvías 🛤️";
-  const typewriter = document.getElementById("typewriter");
-  let index = 0;
-
-  function type() {
-    if (index < text.length) {
-      typewriter.textContent += text.charAt(index);
-      index++;
-      setTimeout(type, 80); // velocidad de escritura
-    } else {
-      // Mostrar email al terminar
-      document.getElementById("email").classList.add("show");
-    }
-  }
-
-  setTimeout(type, 1000); // espera antes de empezar
-
-  // Redirección con efecto fade-out
-  setTimeout(() => {
-    document.body.classList.add("fade-out");
-    setTimeout(() => {
-      window.location.href = "proyectos.html";
-    }, 1000);
-  }, 15000);
-</script>
