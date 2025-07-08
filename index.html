@@ -124,9 +124,14 @@
     .intro-text-left .email {
       font-size: 1.2rem;
       color: #ccc;
-      animation: fadeIn 1s forwards;
-      animation-delay: 4s;
+      opacity: 0;
+      transition: opacity 1s ease;
     }
+
+    .email.show {
+      opacity: 1;
+    }
+
 
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
@@ -198,7 +203,7 @@
         <div class="intro-text-left">
           <span class="big" id="line1"></span>
           <span class="small" id="line2"></span>
-          <span class="email" id="email">pepe@ejemplo.com</span>
+          <span class="email" id="email">luis@ejemplo.com</span>
         </div>
       </section>
     </main>
@@ -243,7 +248,8 @@
         i2++;
         setTimeout(typeLine2, 50);
       } else {
-        document.getElementById("email").style.opacity = 1;
+        document.getElementById("email").classList.add("show");
+
       }
     }
 
