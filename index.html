@@ -76,32 +76,34 @@
       transition: color 0.3s ease;
     }
 
-    /* Intro Hero */
+    /* Intro Hero - Forzar alineación a la izquierda */
     .hero {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      position: relative;
-      padding-left: 0;
+      height: 100vh !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: flex-start !important;
+      position: relative !important;
+      padding-left: 0 !important;
+      text-align: left !important;
     }
 
-    .intro-text {
-      text-align: left;
-      padding-left: 4rem; /* Aumenté el padding para separar más del borde */
-      margin-left: 0; /* Eliminé el margin-left para que esté más pegado al borde */
-      position: relative;
-      z-index: 10;
-      width: auto;
-      max-width: 60%; /* Limité el ancho para que no ocupe toda la pantalla */
+    .intro-text-left {
+      text-align: left !important;
+      padding-left: 4rem !important;
+      margin-left: 0 !important;
+      position: relative !important;
+      z-index: 10 !important;
+      width: auto !important;
+      max-width: 60% !important;
+      display: block !important;
     }
 
-    .intro-text span {
+    .intro-text-left span {
       display: block;
       opacity: 0;
     }
 
-    .intro-text .big {
+    .intro-text-left .big {
       font-size: 4rem;
       font-weight: 700;
       animation: fadeIn 1s forwards;
@@ -109,7 +111,7 @@
       margin-bottom: 1rem;
     }
 
-    .intro-text .small {
+    .intro-text-left .small {
       font-size: 2rem;
       font-weight: 400;
       animation: fadeIn 1s forwards;
@@ -117,7 +119,7 @@
       margin-bottom: 1rem;
     }
 
-    .intro-text .email {
+    .intro-text-left .email {
       font-size: 1.2rem;
       color: #ccc;
       animation: fadeIn 1s forwards;
@@ -151,16 +153,16 @@
 
     /* Responsive para móviles */
     @media (max-width: 768px) {
-      .intro-text {
-        padding-left: 2rem;
-        max-width: 90%;
+      .intro-text-left {
+        padding-left: 2rem !important;
+        max-width: 90% !important;
       }
       
-      .intro-text .big {
+      .intro-text-left .big {
         font-size: 3rem;
       }
       
-      .intro-text .small {
+      .intro-text-left .small {
         font-size: 1.5rem;
       }
     }
@@ -192,7 +194,7 @@
     <!-- HERO PRINCIPAL -->
     <main>
       <section class="hero">
-        <div class="intro-text">
+        <div class="intro-text-left">
           <span class="big" id="line1"></span>
           <span class="small" id="line2"></span>
           <span class="email" id="email">pepe@ejemplo.com</span>
