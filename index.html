@@ -266,7 +266,7 @@
           <span class="big" id="line1"></span>
           <span class="small" id="line2"></span>
           <span class="small" id="line3"></span>
-          <span class="email" id="email">jjimenezfernan@gmail.com</span>
+          <span class="email" id="email"></span>
         </div>
       </section>
     </main>
@@ -286,7 +286,7 @@
 
   // Máquina de escribir
   const text1 = "¡Hola!";
-  const text2 = "Soy Juan, esta web está...";
+  const text2 = "Soy Juan, y esta es mi web, commo ves, está...";
   const text3 = "...en proceso";
 
   const line1 = document.getElementById("line1");
@@ -324,7 +324,11 @@
       setTimeout(typeLine3, 80);
     } else {
       line3.style.opacity = 1;
-      document.getElementById("email").classList.add("show");
+      
+      const email = document.getElementById("email");
+      email.textContent = "jjimenezfernan@gmail.com";
+      email.classList.add("show");
+
     }
   }
 
