@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     .fade-out {
       animation: fadeOut 1s ease forwards;
@@ -11,13 +16,54 @@
         opacity: 0;
       }
     }
-  </style>
 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mi Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+    .intro-text {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
+      padding-left: 6vw;
+      text-align: left;
+    }
+
+    .intro-text h1 {
+      margin: 0;
+      color: white;
+      line-height: 1.5;
+    }
+
+    .intro-text .big {
+      font-size: 4rem;
+      font-weight: 700;
+      display: block;
+      opacity: 0;
+      animation: fadeIn 1s ease-in-out forwards;
+      animation-delay: 0.5s;
+    }
+
+    .intro-text .small {
+      font-size: 2rem;
+      font-weight: 400;
+      display: block;
+      opacity: 0;
+      animation: fadeIn 1s ease-in-out forwards;
+      animation-delay: 1.5s;
+    }
+
+    .intro-text .email {
+      font-size: 1.2rem;
+      color: #ccc;
+      display: block;
+      opacity: 0;
+      animation: fadeIn 1s ease-in-out forwards;
+      animation-delay: 2.5s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
   <!-- VIDEO DE FONDO -->
@@ -41,10 +87,14 @@
       </nav>
     </header>
 
-    <!-- Secciones -->
+    <!-- Intro -->
     <main>
-      <section class="hero">
-        <h1 id="typewriter"></h1>
+      <section class="hero intro-text">
+        <h1>
+          <span class="big">¡Hola!</span>
+          <span class="small">Soy Juan Jiménez Fernández</span>
+          <span class="email">pepe@ejemplo.com</span>
+        </h1>
       </section>
     </main>
   </div>
@@ -61,27 +111,13 @@
       cursor.style.transform = `translate3d(${x}px, ${y}px, 0)`;
     });
 
-    // Animación tipo máquina de escribir
-    const text = " Juan Jiménez Fernández";
-    const typewriter = document.getElementById("typewriter");
-    let index = 0;
-
-    function type() {
-      if (index < text.length) {
-        typewriter.textContent += text.charAt(index);
-        index++;
-        setTimeout(type, 150);
-      }
-    }
-    setTimeout(type, 1000); // Empieza después de 1 segundo
-
     // Redirección con efecto fade-out
     setTimeout(() => {
       document.body.classList.add("fade-out");
       setTimeout(() => {
         window.location.href = "proyectos.html";
-      }, 1000); // 1s después del fade-out
-    }, 15000); // Espera 15s
+      }, 1000); // 1s para el fade
+    }, 15000); // Espera de 15s antes de redirigir
   </script>
 </body>
 </html>
