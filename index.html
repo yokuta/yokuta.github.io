@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mi Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -25,14 +26,14 @@
       }
     }
 
-    /* Fondo de video simulado */
+    /* Fondo de video */
     #bg-video {
       position: fixed;
       top: 0;
       left: 0;
       min-width: 100%;
       min-height: 100%;
-      background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460);
+      object-fit: cover;
       z-index: -2;
     }
 
@@ -73,22 +74,17 @@
       transition: color 0.3s ease;
     }
 
-    .menu a:hover {
-      color: #ffdd57;
-    }
-
-    /* Intro Hero - Modificado para alinear más a la izquierda */
+    /* Intro Hero */
     .hero {
       height: 100vh;
       display: flex;
       align-items: center;
-      justify-content: flex-start; /* Cambiado de center a flex-start */
+      justify-content: flex-start;
     }
 
     .intro-text {
       text-align: left;
-      padding-left: 2vw; /* Reducido de 6vw a 2vw para más a la izquierda */
-      max-width: 60%; /* Limitamos el ancho para que no se extienda demasiado */
+      padding-left: 2vw;
     }
 
     .intro-text span {
@@ -101,7 +97,6 @@
       font-weight: 700;
       animation: fadeIn 1s forwards;
       animation-delay: 0.5s;
-      margin-bottom: 1rem;
     }
 
     .intro-text .small {
@@ -109,12 +104,11 @@
       font-weight: 400;
       animation: fadeIn 1s forwards;
       animation-delay: 2s;
-      margin-bottom: 1rem;
     }
 
     .intro-text .email {
       font-size: 1.2rem;
-      color: #ffdd57;
+      color: #ccc;
       animation: fadeIn 1s forwards;
       animation-delay: 4s;
     }
@@ -124,7 +118,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Cursor personalizado */
+    /* Cursor personalizado opcional */
     .cursor-light {
       position: fixed;
       top: 0;
@@ -143,32 +137,15 @@
     body:hover .cursor-light {
       opacity: 1;
     }
-
-    /* Responsive para móviles */
-    @media (max-width: 768px) {
-      .intro-text {
-        padding-left: 1rem;
-        max-width: 90%;
-      }
-
-      .intro-text .big {
-        font-size: 2.5rem;
-      }
-
-      .intro-text .small {
-        font-size: 1.5rem;
-      }
-
-      .content {
-        padding: 0 1rem;
-      }
-    }
   </style>
 </head>
 <body>
 
-  <!-- FONDO SIMULADO -->
-  <div id="bg-video"></div>
+  <!-- VIDEO DE FONDO -->
+  <video autoplay muted loop id="bg-video">
+    <source src="13646587_1920_1080_25fps.mp4" type="video/mp4" />
+    Tu navegador no soporta el video.
+  </video>
 
   <!-- CAPA OSCURA -->
   <div class="overlay"></div>
@@ -179,9 +156,9 @@
     <header class="top-bar">
       <div class="logo">holas</div>
       <nav class="menu">
-        <a href="#proyectos">Proyectos</a>
-        <a href="#sobre-mi">Sobre mí</a>
-        <a href="#contacto">Contacto</a>
+        <a href="proyectos.html">Proyectos</a>
+        <a href="sobre-mi.html">Sobre mí</a>
+        <a href="contacto.html">Contacto</a>
       </nav>
     </header>
 
@@ -211,7 +188,7 @@
 
     // Máquina de escribir
     const text1 = "¡Hola!";
-    const text2 = "Soy Juan, explorador de datos y tranvías 🛤️";
+    const text2 = "Soy Pedro, explorador de datos y tranvías 🛤️";
 
     const line1 = document.getElementById("line1");
     const line2 = document.getElementById("line2");
@@ -242,15 +219,13 @@
 
     setTimeout(typeLine1, 500);
 
-    // Redirección con fade (comentado para demostración)
-    
+    // Redirección con fade
     setTimeout(() => {
       document.body.classList.add("fade-out");
       setTimeout(() => {
         window.location.href = "proyectos.html";
       }, 1000);
     }, 15000);
-    
   </script>
 
 </body>
