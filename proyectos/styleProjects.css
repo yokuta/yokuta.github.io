@@ -234,8 +234,9 @@ section p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 0;
+  padding: 2rem 3rem; /* ← este 3rem iguala el .content */
 }
+
 
 .logo {
   font-size: 1.8rem;
