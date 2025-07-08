@@ -89,12 +89,12 @@
 
     <!-- Intro -->
     <main>
-      <section class="hero intro-text">
-        <h1>
-          <span class="big">¡Hola!</span>
-          <span class="small">Soy Juan Jiménez Fernández</span>
-          <span class="email">pepe@ejemplo.com</span>
-        </h1>
+
+      <section class="hero">
+        <div class="intro-container">
+          <h1 id="typewriter"></h1>
+          <p class="email hidden" id="email">pepe@ejemplo.com</p>
+        </div>
       </section>
     </main>
   </div>
@@ -121,3 +121,39 @@
   </script>
 </body>
 </html>
+
+
+<script>
+  const cursor = document.getElementById('cursor-light');
+  document.addEventListener('mousemove', e => {
+    const x = e.clientX - cursor.offsetWidth / 2;
+    const y = e.clientY - cursor.offsetHeight / 2;
+    cursor.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+  });
+
+  // Texto con saltos de línea
+  const text = "¡Hola!\nSoy Juan, explorador de datos y tranvías 🛤️";
+  const typewriter = document.getElementById("typewriter");
+  let index = 0;
+
+  function type() {
+    if (index < text.length) {
+      typewriter.textContent += text.charAt(index);
+      index++;
+      setTimeout(type, 80); // velocidad de escritura
+    } else {
+      // Mostrar email al terminar
+      document.getElementById("email").classList.add("show");
+    }
+  }
+
+  setTimeout(type, 1000); // espera antes de empezar
+
+  // Redirección con efecto fade-out
+  setTimeout(() => {
+    document.body.classList.add("fade-out");
+    setTimeout(() => {
+      window.location.href = "proyectos.html";
+    }, 1000);
+  }, 15000);
+</script>
