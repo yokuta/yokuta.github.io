@@ -3,69 +3,119 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mi Portfolio</title>
-  <link rel="stylesheet" href="styleabout.css" />
+  <title>Mi Portfolio - Sobre mí</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
-
   <style>
-    .about-me {
+    /* ---------------------------
+      ESTILO GENERAL DEL PROYECTO
+    ---------------------------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0e0e0e;
+      color: #ffffff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ---------------------------
+      TOP BAR
+    ---------------------------- */
+    .top-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 2rem 3rem;
+      background-color: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      display: block;
+    }
+
+    .logo-img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .menu {
+      display: flex;
       gap: 2rem;
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: 400;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .menu a::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      height: 2px;
+      width: 0%;
+      background-color: #ffffff;
+      transition: width 0.3s ease;
+    }
+
+    .menu a:hover::after {
+      width: 100%;
+    }
+
+    .menu a:hover {
+      color: #ffdd57;
+    }
+
+    /* ---------------------------
+      CONTENIDO PRINCIPAL
+    ---------------------------- */
+    .content {
+      max-width: 1200px;
+      margin: 0 auto;
       padding: 3rem 2rem;
-      flex-wrap: wrap;
+    }
+
+    /* ---------------------------
+      SECCIÓN SOBRE MÍ
+    ---------------------------- */
+    .about-me {
+      display: grid;
+      grid-template-columns: 1fr 350px;
+      gap: 4rem;
+      align-items: start;
+      min-height: 80vh;
     }
 
     .about-text {
-      flex: 1;
-      min-width: 280px;
-    }
-
-    .about-text p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: #ccc;
-      margin-bottom: 1rem;
-    }
-
-    .about-photo {
-      flex: 0 0 auto;
-    }
-
-    .profile-img {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-    }
-
-    .cv-button {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.6rem 1.2rem;
-      background-color: #333;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: background 0.3s;
-      font-weight: 500;
-    }
-
-    .cv-button:hover {
-      background-color: #555;
+      padding-top: 2rem;
     }
 
     .typing-animation {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      color: #ffdd57;
+      font-weight: 700;
       overflow: hidden;
       white-space: nowrap;
       border-right: 3px solid #ffdd57;
       width: 0;
       animation: typing 3.5s steps(40, end) forwards, blink 0.75s step-end infinite;
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      color: #ffdd57;
     }
 
     @keyframes typing {
@@ -77,134 +127,360 @@
       from, to { border-color: transparent }
       50% { border-color: #ffdd57 }
     }
+
+    .typing-paragraph {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #ccc;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeIn 0.5s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    .typing-paragraph strong {
+      color: #ffdd57;
+      font-weight: 600;
+    }
+
+    .typing-paragraph em {
+      color: #ffffff;
+      font-style: italic;
+    }
+
+    /* ---------------------------
+      SECCIÓN DERECHA - FOTO Y CARRUSEL
+    ---------------------------- */
+    .about-photo-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      position: sticky;
+      top: 120px;
+    }
+
+    .profile-img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 30px rgba(255, 221, 87, 0.3);
+      border: 3px solid #ffdd57;
+      transition: transform 0.3s ease;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.05);
+    }
+
+    /* ---------------------------
+      CARRUSEL
+    ---------------------------- */
+    .carousel-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .carousel-container {
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-track img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      border: none;
+      font-size: 1.5rem;
+      padding: 0.5rem 0.8rem;
+      cursor: pointer;
+      border-radius: 50%;
+      z-index: 10;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
+    }
+
+    .carousel-btn:hover {
+      background: rgba(255, 221, 87, 0.8);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .carousel-btn.left {
+      left: 10px;
+    }
+
+    .carousel-btn.right {
+      right: 10px;
+    }
+
+    .carousel-indicators {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .indicator {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.3);
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .indicator.active {
+      background-color: #ffdd57;
+    }
+
+    /* ---------------------------
+      CURSOR PERSONALIZADO
+    ---------------------------- */
+    .cursor-light {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 80px;
+      height: 80px;
+      pointer-events: none;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 221, 87, 0.2) 0%, transparent 70%);
+      mix-blend-mode: screen;
+      opacity: 0;
+      transition: transform 0.05s ease-out, opacity 0.3s ease;
+      z-index: 1000;
+    }
+
+    body:hover .cursor-light {
+      opacity: 1;
+    }
+
+    /* ---------------------------
+      RESPONSIVE
+    ---------------------------- */
+    @media (max-width: 768px) {
+      .about-me {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+      }
+
+      .about-photo-block {
+        position: static;
+        order: -1;
+      }
+
+      .typing-animation {
+        font-size: 2rem;
+      }
+
+      .typing-paragraph {
+        font-size: 1.1rem;
+      }
+
+      .profile-img {
+        width: 150px;
+        height: 150px;
+      }
+
+      .carousel-wrapper {
+        max-width: 250px;
+      }
+
+      .top-bar {
+        padding: 1.5rem 2rem;
+      }
+
+      .content {
+        padding: 2rem 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .menu {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .typing-animation {
+        font-size: 1.5rem;
+      }
+
+      .carousel-wrapper {
+        max-width: 200px;
+      }
+
+      .profile-img {
+        width: 120px;
+        height: 120px;
+      }
+    }
   </style>
 </head>
 
 <body>
+  <!-- BARRA SUPERIOR -->
+  <header class="top-bar">
+    <div class="logo">
+      <a href="https://yokuta.github.io/">
+        <img src="imagenes/duck.gif" alt="Logo Duck" class="logo-img">
+      </a>
+    </div>
+    <nav class="menu">
+      <a href="proyectos.html">Proyectos</a>
+      <a href="sobre-mi.html">Sobre mí</a>
+    </nav>
+  </header>
 
-  <!-- CAPA OSCURA TRANSLÚCIDA -->
-  <div class="overlay"></div>
-
-  <!-- CONTENIDO -->
+  <!-- CONTENIDO PRINCIPAL -->
   <div class="content">
-    <!-- BARRA SUPERIOR -->
-    <header class="top-bar">
-      <div class="logo">
-        <a href="https://yokuta.github.io/">
-          <img src="imagenes/duck.gif" alt="Logo Duck" class="logo-img" >
-        </a>
-      </div>
-      <nav class="menu">
-        <a href="proyectos.html">Proyectos</a>
-        <a href="sobre-mi.html">Sobre mí</a>
-      </nav>
-    </header>
-
-    <!-- Sección SOBRE MÍ -->
     <main>
       <section class="about-me">
+        <!-- TEXTO A LA IZQUIERDA -->
         <div class="about-text">
-          <h2 class="typing-animation">Sobre mí</h2>
+          <h2 class="typing-animation">Sobre Juan</h2>
           <p id="line1" class="typing-paragraph"></p>
           <p id="line2" class="typing-paragraph"></p>
           <p id="line3" class="typing-paragraph"></p>
           <p id="line4" class="typing-paragraph"></p>
         </div>
 
+        <!-- FOTO Y CARRUSEL A LA DERECHA -->
         <div class="about-photo-block">
           <img src="imagenes/juan.jpg" alt="Foto de perfil" class="profile-img">
-
+          
           <div class="carousel-wrapper">
             <button class="carousel-btn left" onclick="scrollCarousel(-1)">‹</button>
             <div class="carousel-container">
               <div class="carousel-track" id="carouselTrack">
-                <img src="imagenes/matatu.jpg" alt="Viaje en moto" class="matatu-img">
-                <img src="imagenes/matatu2.jpg" alt="Viaje en moto" class="matatu-img"/>
-                <img src="imagenes/matatu3.jpg" alt="Viaje en moto" class="matatu-img"/>
+                <img src="imagenes/matatu.jpg" alt="Viaje en moto 1">
+                <img src="imagenes/matatu2.jpg" alt="Viaje en moto 2">
+                <img src="imagenes/matatu3.jpg" alt="Viaje en moto 3">
               </div>
             </div>
             <button class="carousel-btn right" onclick="scrollCarousel(1)">›</button>
+            
+            <div class="carousel-indicators">
+              <span class="indicator active" onclick="goToSlide(0)"></span>
+              <span class="indicator" onclick="goToSlide(1)"></span>
+              <span class="indicator" onclick="goToSlide(2)"></span>
+            </div>
           </div>
         </div>
       </section>
-
     </main>
-
-
-
-    
   </div>
 
+  <!-- CURSOR PERSONALIZADO -->
   <div class="cursor-light" id="cursor-light"></div>
 
   <script>
+    // Cursor personalizado
     const cursor = document.getElementById('cursor-light');
-
     document.addEventListener('mousemove', e => {
       const x = e.clientX - cursor.offsetWidth / 2;
       const y = e.clientY - cursor.offsetHeight / 2;
       cursor.style.transform = `translate3d(${x}px, ${y}px, 0)`;
     });
+
+    // Carrusel funcional
+    let currentSlide = 0;
+    const totalSlides = 3;
+    const track = document.getElementById('carouselTrack');
+    const indicators = document.querySelectorAll('.indicator');
+
+    function updateCarousel() {
+      const translateX = -currentSlide * 100;
+      track.style.transform = `translateX(${translateX}%)`;
+      
+      // Actualizar indicadores
+      indicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === currentSlide);
+      });
+    }
+
+    function scrollCarousel(direction) {
+      currentSlide += direction;
+      
+      if (currentSlide < 0) {
+        currentSlide = totalSlides - 1;
+      } else if (currentSlide >= totalSlides) {
+        currentSlide = 0;
+      }
+      
+      updateCarousel();
+    }
+
+    function goToSlide(slideIndex) {
+      currentSlide = slideIndex;
+      updateCarousel();
+    }
+
+    // Auto-scroll del carrusel cada 5 segundos
+    setInterval(() => {
+      scrollCarousel(1);
+    }, 5000);
+
+    // Animación de escritura de párrafos
+    const paragraphs = [
+      "Estudié Ingeniería Informática en la <strong>UPM</strong> y más tarde cursé un máster en <strong>Ciudades Inteligentes</strong> en la <strong>UCM</strong>.",
+      "Me apasiona trabajar con datos: entender cómo se generan, cómo fluyen y cómo pueden ayudarnos a tomar mejores decisiones. Desde grandes volúmenes de información urbana hasta registros más pequeños y personales, creo que todo dato tiene algo que se puede contar.",
+      "Me interesa especialmente transformar los datos en narrativas visuales y accesibles. Visualizar información es, para mí, una manera de traducir la complejidad del mundo en algo claro y comprensible.",
+      "Además de mi interés profesional, soy una apasionada de los viajes y la literatura. La imagen que ves a la derecha pertenece a un viaje que hice en moto por África, en una ruta que recuerda a la de uno de mis autores favoritos: <strong>Manu Leguineche</strong> en <em>El camino más corto</em>."
+    ];
+
+    function typeParagraph(text, elementId, delay, callback) {
+      const element = document.getElementById(elementId);
+      let i = 0;
+      let tag = false;
+
+      function type() {
+        if (i < text.length) {
+          if (text.charAt(i) === "<") tag = true;
+          if (text.charAt(i) === ">") tag = false;
+
+          element.innerHTML += text.charAt(i);
+          i++;
+          setTimeout(type, tag ? 0 : delay);
+        } else if (callback) {
+          callback();
+        }
+      }
+
+      type();
+    }
+
+    // Iniciar secuencia de escritura después de que termine la animación del título
+    setTimeout(() => {
+      typeParagraph(paragraphs[0], "line1", 40, () => {
+        typeParagraph(paragraphs[1], "line2", 30, () => {
+          typeParagraph(paragraphs[2], "line3", 30, () => {
+            typeParagraph(paragraphs[3], "line4", 30);
+          });
+        });
+      });
+    }, 3500);
   </script>
 </body>
 </html>
-
-
-
-<script>
-  function scrollCarousel(direction) {
-    const container = document.querySelector(".carousel-container");
-    const track = document.getElementById("carouselTrack");
-    const img = track.querySelector("img");
-
-    if (!img) return;
-
-    const imageWidth = img.offsetWidth + 8; // incluye margen
-    container.scrollBy({
-      left: direction * imageWidth,
-      behavior: "smooth"
-    });
-  }
-
-
-</script>
-
-
-<script>
-  const paragraphs = [
-    "Estudié Ingeniería Informática en la <strong>UPM</strong> y más tarde cursé un máster en <strong>Ciudades Inteligentes</strong> en la <strong>UCM</strong>.",
-    "Me apasiona trabajar con datos: entender cómo se generan, cómo fluyen y cómo pueden ayudarnos a tomar mejores decisiones. Desde grandes volúmenes de información urbana hasta registros más pequeños y personales, creo que todo dato tiene algo que se puede contar.",
-    "Me interesa especialmente transformar los datos en narrativas visuales y accesibles. Visualizar información es, para mí, una manera de traducir la complejidad del mundo en algo claro y comprensible.",
-    "Además de mi interés profesional, soy una apasionada de los viajes y la literatura. La imagen que ves a la derecha pertenece a un viaje que hice en moto por África, en una ruta que recuerda a la de uno de mis autores favoritos: <strong>Manu Leguineche</strong> en <em>El camino más corto</em>."
-  ];
-
-  function typeParagraph(text, elementId, delay, callback) {
-    const element = document.getElementById(elementId);
-    let i = 0;
-    let tag = false;
-
-    function type() {
-      if (i < text.length) {
-        if (text.charAt(i) === "<") tag = true;
-        if (text.charAt(i) === ">") tag = false;
-
-        element.innerHTML += text.charAt(i);
-        i++;
-        setTimeout(type, tag ? 0 : delay);
-      } else if (callback) {
-        callback();
-      }
-    }
-
-    type();
-  }
-
-  // Iniciar secuencia
-  typeParagraph(paragraphs[0], "line1", 40, () => {
-    typeParagraph(paragraphs[1], "line2", 30, () => {
-      typeParagraph(paragraphs[2], "line3", 30, () => {
-        typeParagraph(paragraphs[3], "line4", 30);
-      });
-    });
-  });
-</script>
