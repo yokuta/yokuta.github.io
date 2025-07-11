@@ -167,12 +167,13 @@
 
 <script>
   function scrollCarousel(direction) {
-    const track = document.getElementById("carouselTrack");
-    const scrollAmount = track.querySelector("img").offsetWidth + 16; // +gap
-    track.scrollBy({
-      left: direction * scrollAmount,
+    const container = document.querySelector(".carousel-container");
+    const imageWidth = container.querySelector("img").offsetWidth + 16; // incluye margen
+    container.scrollBy({
+      left: direction * imageWidth,
       behavior: "smooth"
     });
   }
+
 </script>
 
