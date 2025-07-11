@@ -390,40 +390,78 @@ body.scrollable {
   color: #ffdd57;
 }
 
+.sobre-mi-seccion {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 3rem 2rem;
+  background: none;
+  flex-wrap: wrap;
+}
+
+.texto-sobre-mi {
+  flex: 1;
+  max-width: 600px;
+  background: rgba(17, 17, 17, 0.9);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  color: #ccc;
+  margin-right: 2rem;
+}
+
+.texto-sobre-mi h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #ffdd57;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #ffdd57;
+  width: 0;
+  animation: typing 3s steps(30, end) forwards, blink 0.8s step-end infinite;
+}
+
 @keyframes typing {
   from { width: 0 }
   to { width: 100% }
 }
 
 @keyframes blink {
-  from, to { border-color: transparent }
+  0%, 100% { border-color: transparent }
   50% { border-color: #ffdd57 }
 }
 
-/* EFECTO PARA LOS PÁRRAFOS */
-.text-line {
+/* párrafos efecto máquina secuencial */
+.maquina {
   opacity: 0;
-  animation: fadeInText 1.5s ease forwards;
+  animation: escribir 1.5s ease forwards;
+  transform: translateY(10px);
+  margin-bottom: 1.2rem;
 }
 
-@keyframes fadeInText {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
+@keyframes escribir {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* RETARDOS PARA EFECTO ESCALONADO */
-.delay-1 { animation-delay: 1s; }
-.delay-2 { animation-delay: 2s; }
-.delay-3 { animation-delay: 3s; }
-.delay-4 { animation-delay: 4s; }
-.delay-5 { animation-delay: 5s; }
+.delay-1 { animation-delay: 3.5s; }
+.delay-2 { animation-delay: 5.5s; }
+.delay-3 { animation-delay: 7.5s; }
+.delay-4 { animation-delay: 9.5s; }
 
+.imagen-sobre-mi {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-
-
+.imagen-sobre-mi img {
+  max-width: 100%;
+  height: auto;
+  max-height: 500px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
