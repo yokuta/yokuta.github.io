@@ -449,3 +449,39 @@ body {
   border-radius: 12px;
   box-shadow: 0 0 15px rgba(255,255,255,0.1);
 }
+
+
+.carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.carousel-container {
+  overflow: hidden;
+  width: 250px; /* ajusta según tamaño de imágenes */
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.3s ease;
+  scroll-behavior: smooth;
+}
+
+.matatu-img {
+  width: 250px;
+  height: 160px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border-radius: 10px;
+  margin-right: 8px;
+}
+
+.carousel-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  font-size: 2rem;
+  color: #ffdd57;
+  cu

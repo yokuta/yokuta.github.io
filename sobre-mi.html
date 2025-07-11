@@ -105,27 +105,26 @@
       <section class="about-me">
         <div class="about-text">
           <h2 class="typing-animation">Sobre mí</h2>
-
-          <p class="typing-animation1 delay-1">
-            Estudié Ingeniería Informática en la <strong>UPM</strong> y más tarde cursé un máster en <strong>Ciudades Inteligentes</strong> en la <strong>UCM</strong>.
-          </p>
-
-          <p class="typing-animation1 delay-2">
-            Me apasiona trabajar con datos: entender cómo se generan, cómo fluyen y cómo pueden ayudarnos a tomar mejores decisiones. Desde grandes volúmenes de información urbana hasta registros más pequeños y personales, creo que todo dato tiene una historia que merece ser contada.
-          </p>
-
-          <p class="typing-animation1 delay-3">
-            Me interesa especialmente transformar los datos en narrativas visuales y accesibles. Visualizar información es, para mí, una manera de traducir la complejidad del mundo en algo claro y comprensible.
-          </p>
-
-          <p class="typing-animation1 delay-4">
-            Además de mi interés profesional, soy una apasionada de los viajes y la literatura. La imagen que ves a la derecha pertenece a un viaje que hice en moto por África, en una ruta que recuerda a la de uno de mis autores favoritos: <strong>Manu Leguineche</strong> en <em>El camino más corto</em>.
-          </p>
+          <p id="line1" class="typing-paragraph"></p>
+          <p id="line2" class="typing-paragraph"></p>
+          <p id="line3" class="typing-paragraph"></p>
+          <p id="line4" class="typing-paragraph"></p>
         </div>
 
         <div class="about-photo">
           <img src="imagenes/juan.jpg" alt="Foto de perfil" class="profile-img">
-          <img src="imagenes/matatu.jpg" alt="Viaje en moto" class="matatu-img">
+          <div class="carousel-wrapper">
+            <button class="carousel-btn left" onclick="scrollCarousel(-1)">‹</button>
+            <div class="carousel-container">
+              <div class="carousel-track" id="carouselTrack">
+                <img src="imagenes/matatu.jpg" alt="Viaje en moto" class="matatu-img">
+                <img src="/imagenes/matatu2.jpg" alt="Viaje en moto"  class="matatu-img"/>
+                <img src="/imagenes/matatu3.jpg"  alt="Viaje en moto"  class="matatu-img"/>
+              </div>
+            </div>
+            <button class="carousel-btn right" onclick="scrollCarousel(1)">›</button>
+          </div>
+          
         </div>
       </section>
     </main>
@@ -148,3 +147,63 @@
   </script>
 </body>
 </html>
+
+
+
+<script>
+  function scrollCarousel(direction) {
+    const container = document.querySelector(".carousel-container");
+    const track = document.getElementById("carouselTrack");
+    const img = track.querySelector("img");
+
+    if (!img) return;
+
+    const imageWidth = img.offsetWidth + 8; // incluye margen
+    container.scrollBy({
+      left: direction * imageWidth,
+      behavior: "smooth"
+    });
+  }
+
+
+</script>
+
+
+<script>
+  const paragraphs = [
+    "Estudié Ingeniería Informática en la <strong>UPM</strong> y más tarde cursé un máster en <strong>Ciudades Inteligentes</strong> en la <strong>UCM</strong>.",
+    "Me apasiona trabajar con datos: entender cómo se generan, cómo fluyen y cómo pueden ayudarnos a tomar mejores decisiones. Desde grandes volúmenes de información urbana hasta registros más pequeños y personales, creo que todo dato tiene algo que se puede contar.",
+    "Me interesa especialmente transformar los datos en narrativas visuales y accesibles. Visualizar información es, para mí, una manera de traducir la complejidad del mundo en algo claro y comprensible.",
+    "Además de mi interés profesional, soy una apasionada de los viajes y la literatura. La imagen que ves a la derecha pertenece a un viaje que hice en moto por África, en una ruta que recuerda a la de uno de mis autores favoritos: <strong>Manu Leguineche</strong> en <em>El camino más corto</em>."
+  ];
+
+  function typeParagraph(text, elementId, delay, callback) {
+    const element = document.getElementById(elementId);
+    let i = 0;
+    let tag = false;
+
+    function type() {
+      if (i < text.length) {
+        if (text.charAt(i) === "<") tag = true;
+        if (text.charAt(i) === ">") tag = false;
+
+        element.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(type, tag ? 0 : delay);
+      } else if (callback) {
+        callback();
+      }
+    }
+
+    type();
+  }
+
+  // Iniciar secuencia
+  typeParagraph(paragraphs[0], "line1", 40, () => {
+    typeParagraph(paragraphs[1], "line2", 30, () => {
+      typeParagraph(paragraphs[2], "line3", 30, () => {
+        typeParagraph(paragraphs[3], "line4", 30);
+      });
+    });
+  });
+</script>
