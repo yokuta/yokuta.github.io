@@ -5,9 +5,81 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mi Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    .about-me {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      padding: 3rem 2rem;
+      flex-wrap: wrap;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .about-text p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ccc;
+      margin-bottom: 1rem;
+    }
+
+    .about-photo {
+      flex: 0 0 auto;
+    }
+
+    .profile-img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+
+    .cv-button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background-color: #333;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s;
+      font-weight: 500;
+    }
+
+    .cv-button:hover {
+      background-color: #555;
+    }
+
+    .typing-animation {
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 3px solid #ffdd57;
+      width: 0;
+      animation: typing 3.5s steps(40, end) forwards, blink 0.75s step-end infinite;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: #ffdd57;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      from, to { border-color: transparent }
+      50% { border-color: #ffdd57 }
+    }
+  </style>
 </head>
+
 <body>
   <!-- VIDEO DE FONDO -->
   <video autoplay muted loop id="bg-video">
@@ -33,27 +105,43 @@
       </nav>
     </header>
 
-    <!-- Secciones -->
+    <!-- Sección SOBRE MÍ -->
     <main>
-        <section>
-            <h2>Sobre mí</h2>
-            <p>Soy un desarrollador creativo con pasión por la tecnología...</p>
-        </section>
-    </main>
+      <section class="about-me">
+        <div class="about-text">
+          <h2 class="typing-animation">Sobre mí</h2>
+          <p>
+            Soy estudiante de Ingeniería Informática en la <strong>Universidad Politécnica de Madrid (UPM)</strong>, y completé un máster en <strong>Ciudades Inteligentes</strong> en la <strong>Universidad Complutense de Madrid</strong>.
+          </p>
+          <p>
+            Durante mi etapa universitaria también estudié en el extranjero, gracias a un programa Erasmus en la <strong>Universidad de Bratislava</strong>.
+          </p>
+          <p>
+            Me apasiona trabajar con datos. Creo que son una herramienta poderosa para entender cómo funciona el mundo, ya sea desde una perspectiva geográfica —como en mis últimos proyectos— o cultural —como el análisis emocional de las canciones de Sabina.
+          </p>
+          <p>
+            Me interesa contar historias con datos, traducir la complejidad en visualizaciones y análisis que conecten con la gente. Si te interesa saber más sobre mí, puedes descargar mi currículum aquí:
+          </p>
+          <a class="cv-button" href="/documentos/CVJuanJimenezFernandezEn.pdf" download>📄 Descargar CV</a>
+        </div>
 
+        <div class="about-photo">
+          <img src="/imagenes/juan.jpg" alt="Foto de perfil" class="profile-img" />
+        </div>
+      </section>
+    </main>
   </div>
+
   <div class="cursor-light" id="cursor-light"></div>
+
+  <script>
+    const cursor = document.getElementById('cursor-light');
+
+    document.addEventListener('mousemove', e => {
+      const x = e.clientX - cursor.offsetWidth / 2;
+      const y = e.clientY - cursor.offsetHeight / 2;
+      cursor.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+    });
+  </script>
 </body>
 </html>
-
-<script>
-  const cursor = document.getElementById('cursor-light');
-
-  document.addEventListener('mousemove', e => {
-    const x = e.clientX - cursor.offsetWidth / 2;
-    const y = e.clientY - cursor.offsetHeight / 2;
-
-    cursor.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-  });
-</script>
-
