@@ -403,30 +403,3 @@ ul {
 }
 
 
-.nav-arrow {
-  position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 3rem;
-  color: #ffdd57;
-  text-decoration: none;
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 0.5rem 1rem;
-  border-radius: 50%;
-  z-index: 999;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.nav-arrow:hover {
-  background-color: rgba(255, 221, 87, 0.9);
-  color: #000;
-  transform: translateY(-50%) scale(1.1);
-}
-
-.left-arrow {
-  left: 1rem;
-}
-
-.right-arrow {
-  right: 1rem;
-}
