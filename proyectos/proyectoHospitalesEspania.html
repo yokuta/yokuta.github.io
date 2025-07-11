@@ -9,7 +9,8 @@
  
 </head>
 <body>
-
+  
+  
   <header class="top-bar">
     <div class="logo">
       <a href="https://yokuta.github.io/">
@@ -21,9 +22,10 @@
       <a href="../sobre-mi.html">Sobre mí</a>
     </nav>
   </header>
-  <div id="particles-js"></div>
+  
   <div class="content">
     <main>
+      <div id="particles-js"></div>
       <section>
          <h2 class = "titulo-ancho">¿Cuánto tiempo se tarda en llegar a un hospital en España? 🏥</h2>
         <section>
@@ -32,24 +34,16 @@
           </p>
 
           <p>
-            El objetivo era claro: medir, municipio a municipio, cuánto tarda una persona en llegar en coche al hospital más cercano. ¿Qué tan accesible es realmente el sistema sanitario? ¿Qué patrones emergen cuando cruzamos estos datos con la densidad de población? ¿Hasta qué punto la España rural sigue pagando el precio de décadas de abandono institucional?
+            El objetivo era claro: medir, municipio a municipio, cuánto tarda una persona en llegar en coche al hospital más cercano. ¿Qué tan accesible es realmente el sistema sanitario? ¿Qué patrones emergen cuando cruzamos estos datos con la densidad de población?
           </p>
 
           <h3>¿Cómo se construye un mapa así?</h3>
           <p>
-            Aunque parezca sencillo a primera vista, no existía una base de datos pública que ofreciera directamente este tipo de información a nivel municipal. Por ello, el primer paso fue localizar una fuente alternativa: el portal <strong>SIDAMUN</strong>, que ofrece análisis de accesibilidad sanitaria para cada municipio, aunque solo en forma de imágenes generadas dinámicamente, no como tablas descargables.
+            Aunque parezca sencillo a primera vista, no existía una base de datos pública que ofreciera directamente este tipo de información a nivel municipal. Por ello, el primer paso fue localizar una fuente alternativa: el portal <strong>SIDAMUN</strong>, que ofrece análisis de accesibilidad sanitaria para cada municipio, aunque solo en forma de imágenes generadas dinámicamente, no como tablas descargables. Esto implicó diseñar una estrategia técnica para extraer los datos. Utilicé un enfoque de <em>web scraping</em> automatizado: un script en Python combinando librerías como <strong>requests</strong>, <strong>BeautifulSoup</strong> y <strong>Selenium</strong> permitió navegar por la web y descargar sistemáticamente las imágenes generadas por cada búsqueda.
           </p>
 
           <p>
-            Esto implicó diseñar una estrategia técnica para extraer los datos. Utilicé un enfoque de <em>web scraping</em> automatizado: un script en Python combinando librerías como <strong>requests</strong>, <strong>BeautifulSoup</strong> y <strong>Selenium</strong> permitió navegar por la web y descargar sistemáticamente las imágenes generadas por cada búsqueda.
-          </p>
-
-          <p>
-            Una vez obtenidas las imágenes, la siguiente fase fue aplicar <strong>reconocimiento óptico de caracteres (OCR)</strong> con herramientas como <strong>pytesseract</strong> y <strong>OpenCV</strong>. Esto permitió extraer automáticamente la información clave: el nombre del municipio, su población, y el tiempo medio de acceso hospitalario en minutos.
-          </p>
-
-          <p>
-            Los datos extraídos fueron luego estructurados y depurados usando <strong>pandas</strong> y <strong>numpy</strong>, y preparados para su análisis geoespacial. Finalmente, importé toda la información a <strong>QGIS</strong>, donde creé un mapa interactivo que visualiza, mediante una escala de colores, el tiempo estimado de acceso desde cada municipio al hospital más cercano.
+            Una vez obtenidas las imágenes, la siguiente fase fue aplicar <strong>reconocimiento óptico de caracteres (OCR)</strong> con herramientas como <strong>pytesseract</strong> y <strong>OpenCV</strong>. Esto permitió extraer automáticamente la información clave: el nombre del municipio, su población, y el tiempo medio de acceso hospitalario en minutos. Los datos extraídos fueron luego estructurados y depurados usando <strong>pandas</strong> y <strong>numpy</strong>, y preparados para su análisis geoespacial. Finalmente, importé toda la información a <strong>QGIS</strong>, donde creé un mapa interactivo que visualiza, mediante una escala de colores, el tiempo estimado de acceso desde cada municipio al hospital más cercano.
           </p>
 
           <div class="project-images">
@@ -58,11 +52,7 @@
 
           <h3>¿Qué nos cuenta este mapa?</h3>
           <p>
-            El resultado es tan visual como revelador. En buena parte del interior peninsular, la llamada “España vacía”,  los colores oscuros del mapa indican tiempos de desplazamiento que superan los 45 o incluso los 60 minutos. En contraste, la costa, los grandes núcleos urbanos y las zonas metropolitanas gozan de accesibilidad inmediata.
-          </p>
-
-          <p>
-            Este no es un simple problema logístico: es una expresión concreta de la desigualdad territorial. Como escribió Sergio del Molino en <em>La España vacía</em>, el abandono de ciertos territorios no es casualidad, sino el resultado de una larga cadena de decisiones que priorizaron lo urbano sobre lo rural. La falta de servicios básicos, como la atención sanitaria urgente, no solo es consecuencia de la despoblación: también es una de sus causas más graves.
+            El resultado es tan visual como revelador. En buena parte del interior peninsular, la llamada “España vacía”,  los colores oscuros del mapa indican tiempos de desplazamiento que superan los 45 o incluso los 60 minutos. En contraste, la costa, los grandes núcleos urbanos y las zonas metropolitanas gozan de accesibilidad inmediata. Este no es un simple problema logístico: es una expresión concreta de la desigualdad territorial. Como escribió Sergio del Molino en <em>La España vacía</em>, el abandono de ciertos territorios no es casualidad, sino el resultado de una larga cadena de decisiones que priorizaron lo urbano sobre lo rural. La falta de servicios básicos, como la atención sanitaria urgente, no solo es consecuencia de la despoblación: también es una de sus causas más graves.
           </p>
 
           <p>
