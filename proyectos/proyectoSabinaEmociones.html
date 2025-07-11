@@ -2,43 +2,151 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sabina y las Emociones</title>
-  <link rel="stylesheet" href="../style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Proyecto - Análisis letras de Sabina</title>
+  <link rel="stylesheet" href="styleProjects.css" />
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+ 
 </head>
 <body>
-  <!-- HEADER COMÚN -->
+  <div id="particles-js"></div>
   <header class="top-bar">
-    <a class="logo" href="../index.html">MiLogo</a>
+    <div class="logo">
+      <a href="https://yokuta.github.io/">
+        <img src="../imagenes/duck.gif" alt="Logo Duck" class="logo-img">
+      </a>
+    </div>
     <nav class="menu">
       <a href="../proyectos.html">Proyectos</a>
       <a href="../sobre-mi.html">Sobre mí</a>
-      <a href="../contacto.html">Contacto</a>
     </nav>
   </header>
-
-  <!-- CONTENIDO DE ESTILO POST -->
-  <main class="project-article">
-    <h1>¿Qué nos dice la música sobre las emociones de Sabina?</h1>
-    <p>
-      En este proyecto analizo los sentimientos presentes en las canciones de Joaquín Sabina desde dos perspectivas: las letras y sus interpretaciones. Utilicé web scraping para extraer datos de <a href="https://www.letras.com" target="_blank">letras.com</a>, y apliqué técnicas de análisis de sentimientos (TextBlob, VADER y PySentimiento).
-    </p>
-
-    <img src="sabina-emociones.png" alt="Gráfico de emociones en canciones de Sabina">
-
-    <h2>Metodología</h2>
-    <p>
-      Tras extraer los datos, analicé los sentimientos, agrupé las canciones por disco y representé los resultados con Sankey diagrams y una línea temporal para visualizar la evolución emocional de su obra.
-    </p>
-
-    <h2>Conclusiones</h2>
-    <p>
-      Las letras tienden a mostrar un tono negativo, mientras que las interpretaciones son más positivas. Esto sugiere una diferencia entre la emoción original del artista y la percepción explicada.
-    </p>
-
-    <p>
-      <strong>Repositorio:</strong> <a href="https://lnkd.in/dF4WdrXw" target="_blank">Ver en GitHub</a>
-    </p>
-  </main>
+  
+  <div class="content">
+    <main>
+      <section>
+         <h2 class = "titulo-ancho">¿Qué nos dice la música sobre las emociones de un artista? 🎧</h2>
+        <section>
+          <p>
+            Joaquín Sabina es, para muchos, un cronista poético de lo cotidiano, el amor y la derrota. Para mí, es también uno de los artistas que más me ha acompañado a lo largo del tiempo. En este proyecto personal, quise ir un paso más allá de la escucha pasiva: decidí analizar sus canciones desde una perspectiva emocional, apoyándome en técnicas de procesamiento de lenguaje natural para descubrir qué sentimientos afloran realmente en su obra.
+          </p>
+        
+          <p>
+            ¿Transmite Sabina tristeza o ironía? ¿Hay un contraste entre lo que canta y cómo se interpreta? ¿Cómo han evolucionado sus emociones disco tras disco? Estas preguntas guiaron una exploración que combina datos, lenguaje y visualización, y cuyo código completo está disponible en <a href="https://lnkd.in/dF4WdrXw" target="_blank">mi repositorio de GitHub</a>.
+          </p>
+        
+          <h3>Una doble mirada emocional</h3>
+          <p>
+            El proyecto se centró en dos fuentes de análisis: por un lado, las letras originales de Sabina; por otro, las interpretaciones públicas de sus canciones, disponibles en el portal <a href="https://www.letras.com/" target="_blank">letras.com</a>. La idea era contrastar la emoción literaria del autor con la percepción colectiva que emerge al explicar cada canción. ¿Son coherentes? ¿Se contradicen?
+          </p>
+        
+          <h3>Fase 1: Extracción de datos</h3>
+          <p>
+            Para obtener los datos, desarrollé un proceso de <strong>web scraping</strong> en Python que automatiza la recolección de contenidos desde la página mencionada. De cada canción extraje dos elementos: su letra completa y, cuando estaba disponible, su interpretación. Este proceso me permitió construir un corpus textual amplio, organizado por álbum, con el que trabajar posteriormente.
+          </p>
+        
+          <h3>Fase 2: Análisis de sentimientos</h3>
+          <p>
+            Con los textos recopilados, pasé a aplicar distintas técnicas de <strong>análisis de sentimientos</strong>. No me limité a un solo modelo, ya que cada herramienta interpreta el lenguaje de manera distinta. Utilicé tres librerías especializadas: <strong>TextBlob</strong>, <strong>VADER</strong> y <strong>PySentimiento</strong>. Para obtener una visión más equilibrada, calculé la media de sus resultados para cada fragmento textual, tanto en las letras como en sus interpretaciones.
+          </p>
+        
+          <p>
+            Además, agrupé los resultados por álbum, lo que me permitió observar no solo diferencias puntuales entre canciones, sino también patrones emocionales en cada etapa creativa del artista.
+          </p>
+        
+          <h3>Fase 3: Visualización y narrativa de datos</h3>
+          <p>
+            Para traducir los hallazgos en imágenes comprensibles, creé varias visualizaciones interactivas. Entre ellas, destacan tres <strong>diagramas de Sankey</strong> que muestran cómo se distribuyen las emociones principales:
+          </p>
+          <ul>
+            <li>Uno para los sentimientos presentes en las letras.</li>
+            <li>Otro para las emociones que emergen de las interpretaciones.</li>
+            <li>Y un tercero que combina ambos, revelando las concordancias o discrepancias entre lo que se canta y cómo se interpreta.</li>
+          </ul>
+        
+          <p>
+            También desarrollé una <strong>línea temporal</strong> para visualizar la evolución emocional a lo largo de su carrera discográfica, lo que permite ver, por ejemplo, si hay discos particularmente oscuros, irónicos o esperanzadores en comparación con otros.
+          </p>
+        
+          <h3>Principales conclusiones</h3>
+          <p>
+            El contraste más evidente fue que, en promedio, las <strong>letras de Sabina tienden a ser más negativas o melancólicas</strong>, mientras que las explicaciones asociadas a esas canciones presentan un tono más <strong>positivo o neutro</strong>. Esto puede deberse a que el proceso creativo nace desde una emoción intensa, pero su interpretación posterior busca racionalizar o contextualizar ese dolor.
+          </p>
+        
+          <p>
+            Este hallazgo ilustra por qué es tan importante considerar no solo lo que un artista escribe, sino también cómo se recibe o se interpreta. En muchos casos, la emoción literal y el mensaje final pueden ser completamente distintos. Y esa distancia también forma parte del arte.
+          </p>
+        
+          <h3>¿Qué sigue?</h3>
+          <p>
+            Este proyecto no pretende ser concluyente, sino un punto de partida. Me encantaría aplicar este mismo enfoque a otros artistas: ¿qué ocurriría si analizamos a Silvio Rodríguez, Taylor Swift o Rosalía con la misma metodología? ¿Veríamos también ese contraste entre texto e interpretación? ¿Qué emociones dominan en otros géneros musicales?
+          </p>
+        
+          <p>
+            Si te interesa explorar estos vínculos entre arte, emoción y tecnología, te invito a revisar el código completo en mi <a href="https://lnkd.in/dF4WdrXw" target="_blank">GitHub</a>. Todo el proyecto es de código abierto y documentado paso a paso, por si quieres replicarlo o adaptarlo.
+          </p>
+        
+          <p><em>¿Qué artista te gustaría analizar emocionalmente a continuación?</em></p>
+        </section>
+      <div class="project-links">
+        <a href="https://github.com/yokuta/joaquin_sabina_feelings" target="_blank">
+          <img src="/imagenes/github2.png" alt="GitHub">
+        </a>
+        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7313576016751304704/" target="_blank">
+          <img src="/imagenes/linkedin2.png" alt="LinkedIn">
+        </a>
+      </div>
+    </main>
+  </div>
 </body>
 </html>
+
+
+<script>
+  particlesJS("particles-js", {
+    "particles": {
+      "number": {
+        "value": 80,
+        "density": { "enable": true, "value_area": 800 }
+      },
+      "color": { "value": "#ffffff" },
+      "shape": {
+        "type": "circle",
+        "stroke": { "width": 0, "color": "#000000" }
+      },
+      "opacity": {
+        "value": 0.5,
+        "random": false
+      },
+      "size": {
+        "value": 3,
+        "random": true
+      },
+      "line_linked": {
+        "enable": true,
+        "distance": 150,
+        "color": "#ffffff",
+        "opacity": 0.4,
+        "width": 1
+      },
+      "move": {
+        "enable": true,
+        "speed": 2,
+        "direction": "none",
+        "out_mode": "out"
+      }
+    },
+    "interactivity": {
+      "detect_on": "canvas",
+      "events": {
+        "onhover": { "enable": true, "mode": "grab" },
+        "onclick": { "enable": true, "mode": "push" }
+      },
+      "modes": {
+        "grab": { "distance": 140, "line_linked": { "opacity": 1 } },
+        "push": { "particles_nb": 4 }
+      }
+    },
+    "retina_detect": true
+  });
+</script>
