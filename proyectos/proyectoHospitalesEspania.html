@@ -25,36 +25,59 @@
   <div class="content">
     <main>
       <section>
-        <h2>Tiempo de Acceso a Hospitales en España 🏥</h2>
-        <p>
-          Este mapa muestra el tiempo medio estimado que se tarda en llegar en coche al hospital más cercano desde cada municipio de España. También se creó un diagrama de dispersión que relaciona la población del municipio (eje X) con el tiempo medio de acceso hospitalario (eje Y).
-        </p>
+        <section>
+          <h2>¿Cuánto tiempo se tarda en llegar a un hospital en España? 🏥</h2>
+          <p>
+            En emergencias médicas, el tiempo puede ser la diferencia entre la vida y la muerte. Sin embargo, no todas las personas que viven en España tienen el mismo acceso a un hospital. Mientras en las grandes ciudades la atención médica está a minutos de distancia, en muchas zonas rurales llegar a un centro hospitalario puede requerir una hora o más de viaje. Esta desigualdad geográfica, silenciosa pero persistente, fue el punto de partida de este proyecto.
+          </p>
 
-        <h3>Proceso de creación:</h3>
-        <ul>
-          <li><strong>Fuente de datos:</strong> Las imágenes se extrajeron del portal SIDAMUN, ya que no estaban disponibles como tabla.</li>
-          <li><strong>Scraping automatizado:</strong> Se desarrolló un script en Python utilizando <em>requests</em>, <em>BeautifulSoup</em> y <em>Selenium</em> para descargar imágenes dinámicas de cada municipio.</li>
-          <li><strong>Extracción de datos (OCR):</strong> Se aplicó reconocimiento óptico de caracteres usando <em>pytesseract</em> y <em>OpenCV</em> para extraer datos como población y tiempo medio de acceso.</li>
-          <li><strong>Procesamiento de datos:</strong> Se estructuraron y limpiaron con <em>pandas</em> y <em>numpy</em>, listos para su uso geoespacial.</li>
-          <li><strong>Visualización geoespacial:</strong> Los datos procesados se integraron en QGIS sobre la capa de municipios, aplicando un esquema de color por rangos de tiempo.</li>
-        </ul>
+          <p>
+            El objetivo era claro: medir, municipio a municipio, cuánto tarda una persona en llegar en coche al hospital más cercano. ¿Qué tan accesible es realmente el sistema sanitario? ¿Qué patrones emergen cuando cruzamos estos datos con la densidad de población? ¿Hasta qué punto la España rural sigue pagando el precio de décadas de abandono institucional?
+          </p>
 
-        <div class="project-images">
-          <img src="/imagenes/proyectos/traveltime.jpg" alt="Mapa acceso hospitales España">
-        </div>
+          <h3>¿Cómo se construye un mapa así?</h3>
+          <p>
+            Aunque parezca sencillo a primera vista, no existía una base de datos pública que ofreciera directamente este tipo de información a nivel municipal. Por ello, el primer paso fue localizar una fuente alternativa: el portal <strong>SIDAMUN</strong>, que ofrece análisis de accesibilidad sanitaria para cada municipio, aunque solo en forma de imágenes generadas dinámicamente, no como tablas descargables.
+          </p>
 
-        <h3>Conclusiones:</h3>
-        <p>
-          Este mapa revela que, en muchas regiones rurales de España, acceder a un hospital requiere un desplazamiento largo. En varios municipios pequeños, el tiempo supera los 60 minutos. No se trata de una anécdota, sino de una cuestión estructural y de justicia territorial.
-        </p>
-        <p>
-          Como señaló Sergio del Molino en <em>La España vacía</em>, esta despoblación no es fruto del azar: es la consecuencia de una expulsión silenciosa por falta de servicios, inversiones y oportunidades. La atención sanitaria es quizás el problema más grave: en una emergencia, el tiempo importa.
-        </p>
-        <p>
-          Este proyecto pone de manifiesto cómo la desigualdad territorial se normaliza, cómo aceptamos que hay zonas donde vivir implica tener menos derechos y menos futuro. La falta de accesibilidad médica no es solo una consecuencia de la despoblación: es parte del ciclo que la perpetúa.
-        </p>
-      </section>
+          <p>
+            Esto implicó diseñar una estrategia técnica para extraer los datos. Utilicé un enfoque de <em>web scraping</em> automatizado: un script en Python combinando librerías como <strong>requests</strong>, <strong>BeautifulSoup</strong> y <strong>Selenium</strong> permitió navegar por la web y descargar sistemáticamente las imágenes generadas por cada búsqueda.
+          </p>
 
+          <p>
+            Una vez obtenidas las imágenes, la siguiente fase fue aplicar <strong>reconocimiento óptico de caracteres (OCR)</strong> con herramientas como <strong>pytesseract</strong> y <strong>OpenCV</strong>. Esto permitió extraer automáticamente la información clave: el nombre del municipio, su población, y el tiempo medio de acceso hospitalario en minutos.
+          </p>
+
+          <p>
+            Los datos extraídos fueron luego estructurados y depurados usando <strong>pandas</strong> y <strong>numpy</strong>, y preparados para su análisis geoespacial. Finalmente, importé toda la información a <strong>QGIS</strong>, donde creé un mapa interactivo que visualiza, mediante una escala de colores, el tiempo estimado de acceso desde cada municipio al hospital más cercano.
+          </p>
+
+          <div class="project-images">
+            <img src="/imagenes/proyectos/traveltime.jpg" alt="Mapa acceso hospitales España">
+          </div>
+
+          <h3>¿Qué nos cuenta este mapa?</h3>
+          <p>
+            El resultado es tan visual como revelador. En buena parte del interior peninsular —la llamada “España vacía”— los colores oscuros del mapa indican tiempos de desplazamiento que superan los 45 o incluso los 60 minutos. En contraste, la costa, los grandes núcleos urbanos y las zonas metropolitanas gozan de accesibilidad inmediata.
+          </p>
+
+          <p>
+            Este no es un simple problema logístico: es una expresión concreta de la desigualdad territorial. Como escribió Sergio del Molino en <em>La España vacía</em>, el abandono de ciertos territorios no es casualidad, sino el resultado de una larga cadena de decisiones que priorizaron lo urbano sobre lo rural. La falta de servicios básicos —como la atención sanitaria urgente— no solo es consecuencia de la despoblación: también es una de sus causas más graves.
+          </p>
+
+          <p>
+            Cuando vivir en un lugar implica aceptar que una ambulancia tardará más de una hora en llegar, estamos hablando de derechos desiguales. Este proyecto pretende, desde los datos y la tecnología, visibilizar ese desequilibrio. Porque ningún lugar de España debería quedar tan lejos de algo tan esencial como la salud.
+          </p>
+
+          <p>
+            Además del mapa, también generé un <strong>diagrama de dispersión</strong> cruzando la población de cada municipio con su tiempo medio de acceso hospitalario. Así pueden observarse patrones de concentración, identificar municipios críticos, y contrastar percepciones con evidencia.
+          </p>
+
+          <h3>Una reflexión final</h3>
+          <p>
+            A través de la tecnología, los datos y la visualización geoespacial, este proyecto no solo busca informar, sino provocar una reflexión: ¿qué significa tener acceso real a los servicios públicos? ¿Estamos dispuestos a aceptar que, dependiendo del código postal, la salud llegue más tarde? La cartografía no es solo una ciencia: también puede ser una herramienta para reclamar justicia.
+          </p>
+        </section>
       <div class="project-links">
         <a href="https://github.com/yokuta" target="_blank">
           <img src="/imagenes/github2.png" alt="GitHub">
