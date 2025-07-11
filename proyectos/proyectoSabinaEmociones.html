@@ -58,12 +58,24 @@
           <p>
             Para traducir los hallazgos en imágenes comprensibles, creé varias visualizaciones interactivas. Entre ellas, destacan tres <strong>diagramas de Sankey</strong> que muestran cómo se distribuyen las emociones principales:
           </p>
-          <ul>
+          <ul>    
             <li>Uno para los sentimientos presentes en las letras.</li>
             <li>Otro para las emociones que emergen de las interpretaciones.</li>
             <li>Y un tercero que combina ambos, revelando las concordancias o discrepancias entre lo que se canta y cómo se interpreta.</li>
           </ul>
-        
+          <div class="carousel-wrapper">
+            <button class="carousel-btn left" onclick="scrollCarousel(-1)">‹</button>
+            <div class="carousel-container">
+              <div class="carousel-track" id="carouselTrack">
+                <img src="/imagenes/proyectos/sabina_letras.jpg" alt="Sentimientos de las letras" />
+                <img src="/imagenes/proyectos/sabina_explicaciones.jpg" alt="Sentimientos de las explicaciones" />
+                <img src="/imagenes/proyectos/sabina_sentimientosCombinados.jpg" alt="Sentimientos combinados" />
+                <img src="/imagenes/proyectos/sabina_timeline.jpg" alt="Línea temporal de sentimientos" />
+              </div>
+            </div>
+            <button class="carousel-btn right" onclick="scrollCarousel(1)">›</button>
+          </div>
+
           <p>
             También desarrollé una <strong>línea temporal</strong> para visualizar la evolución emocional a lo largo de su carrera discográfica, lo que permite ver, por ejemplo, si hay discos particularmente oscuros, irónicos o esperanzadores en comparación con otros.
           </p>
@@ -150,3 +162,17 @@
     "retina_detect": true
   });
 </script>
+
+
+
+<script>
+  function scrollCarousel(direction) {
+    const track = document.getElementById("carouselTrack");
+    const scrollAmount = track.querySelector("img").offsetWidth + 16; // +gap
+    track.scrollBy({
+      left: direction * scrollAmount,
+      behavior: "smooth"
+    });
+  }
+</script>
+
