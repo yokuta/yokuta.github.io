@@ -2,54 +2,102 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Proyecto Santander - Semana Grande</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Proyecto - Santander Semana Grande</title>
+  <link rel="stylesheet" href="styleProjects.css" />
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
-<body class="scrollable">
-  <!-- VIDEO U OTRO FONDO (opcional) -->
-  <div class="overlay"></div>
+
+<body>
+  <div id="particles-js"></div>
+
+  <header class="top-bar">
+    <div class="logo">
+      <a href="https://yokuta.github.io/">
+        <img src="../imagenes/duck.gif" alt="Logo Duck" class="logo-img">
+      </a>
+    </div>
+    <nav class="menu">
+      <a href="../proyectos.html">Proyectos</a>
+      <a href="../sobre-mi.html">Sobre mí</a>
+    </nav>
+  </header>
 
   <div class="content">
-    <header class="top-bar">
-      <a class="logo" href="index.html">MiLogo</a>
-      <nav class="menu">
-        <a href="proyectos.html">Proyectos</a>
-        <a href="sobre-mi.html">Sobre mí</a>
-        <a href="contacto.html">Contacto</a>
-      </nav>
-    </header>
-
     <main>
       <section>
-        <h2>Proyecto Santander - Semana Grande</h2>
-        <p>Este proyecto consistió en el desarrollo de una experiencia interactiva para la Semana Grande de Santander. Diseñé una interfaz atractiva para mostrar la programación cultural, mapas interactivos de los eventos y una galería multimedia integrada.</p>
+        <h2 class="titulo-ancho">Proyecto: Visualización de la Semana Grande de Santander 🎉</h2>
 
-        <h3>Características principales:</h3>
-        <ul>
-          <li>Diseño responsive con enfoque UX/UI</li>
-          <li>Galería multimedia con fotos del evento</li>
-          <li>Mapa interactivo de los escenarios</li>
-          <li>Optimización para SEO local</li>
-        </ul>
+        <p>
+          [Aquí puedes escribir una introducción al proyecto: contexto, propósito y por qué decidiste hacerlo. Por ejemplo: "Este proyecto explora la programación de la Semana Grande de Santander a través de visualizaciones interactivas y datos geoespaciales..."]
+        </p>
 
-        <img src="santander-presentacion.jpg" alt="Captura del proyecto" style="max-width: 100%; border-radius: 8px; margin-top: 1rem;">
+        <p>
+          [Describe las fases del trabajo: recolección de datos, estructura de eventos, herramientas utilizadas (Leaflet, Mapbox, D3, etc.), y cómo el usuario puede explorar los escenarios.]
+        </p>
 
-        <p>Si quieres más información, puedes escribirme o visitar el repositorio.</p>
-        <a href="https://github.com/tuusuario/repositorio-santander" target="_blank">Ver en GitHub</a>
+        <p>
+          A continuación puedes ver un par de vistas generales del mapa. Al hacer clic sobre cada imagen, se abrirá el mapa interactivo:
+        </p>
+
+        <!-- GALERÍA CON ENLACES -->
+        <div class="image-gallery">
+          <a href="https://tulinkalmismapa.com/mapa1" target="_blank">
+            <img src="../imagenes/santander_mapa1.jpg" alt="Vista general del mapa interactivo 1" style="max-width: 100%; border-radius: 8px; margin: 1rem 0;">
+          </a>
+          <a href="https://tulinkalmismapa.com/mapa2" target="_blank">
+            <img src="../imagenes/santander_mapa2.jpg" alt="Vista general del mapa interactivo 2" style="max-width: 100%; border-radius: 8px; margin: 1rem 0;">
+          </a>
+        </div>
+
+        <p>
+          [Aquí puedes explicar detalles técnicos o decisiones de diseño: qué datos se visualizan, cómo se interactúa con el mapa, si tiene filtros por tipo de evento, horarios, etc.]
+        </p>
+
+        <p>Todo el proyecto está disponible en mi repositorio de GitHub:</p>
+        <a href="https://github.com/tuusuario/repositorio-santander" target="_blank">Ver código en GitHub</a>
       </section>
+
+      <div class="project-links">
+        <a href="https://github.com/tuusuario/repositorio-santander" target="_blank">
+          <img src="/imagenes/github2.png" alt="GitHub">
+        </a>
+        <a href="https://www.linkedin.com/in/tuusuario/" target="_blank">
+          <img src="/imagenes/linkedin2.png" alt="LinkedIn">
+        </a>
+      </div>
     </main>
   </div>
 
-  <div class="cursor-light" id="cursor-light"></div>
-
   <script>
-    const cursor = document.getElementById('cursor-light');
-    document.addEventListener('mousemove', e => {
-      const x = e.clientX - cursor.offsetWidth / 2;
-      const y = e.clientY - cursor.offsetHeight / 2;
-      cursor.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: "#ffffff" },
+        shape: { type: "circle", stroke: { width: 0, color: "#000000" }},
+        opacity: { value: 0.5, random: false },
+        size: { value: 3, random: true },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#ffffff",
+          opacity: 0.4,
+          width: 1
+        },
+        move: { enable: true, speed: 2, direction: "none", out_mode: "out" }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "grab" },
+          onclick: { enable: true, mode: "push" }
+        },
+        modes: {
+          grab: { distance: 140, line_linked: { opacity: 1 } },
+          push: { particles_nb: 4 }
+        }
+      },
+      retina_detect: true
     });
   </script>
 </body>
