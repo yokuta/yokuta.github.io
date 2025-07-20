@@ -114,7 +114,7 @@
       left: 60px;
       z-index: 9999;
       background-color: white;
-      padding: 10px;option
+      padding: 10px;
       border: 1px solid #ccc;
       font-family: Arial, sans-serif;
     }
@@ -132,8 +132,32 @@
       color: white;
       font-weight: bold;
     }
+
+    .home-icon {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 10000;
+    }
+    
+    .home-img {
+      top: 10px;
+      right: 10px;
+      width: 42px;
+      height: 42px;
+      transition: transform 0.3s ease;
+    }
+    
+    .home-img:hover {
+      transform: scale(1.1);
+    }
     </style>
 
+    <div class="home-icon">
+      <a href="https://yokuta.github.io/proyectos/proyectoSantanderSemanaGrande.html" title="Inicio">
+        <img src="https://yokuta.github.io/imagenes/housee.png" alt="Inicio" class="home-img">
+      </a>
+    </div>
     <div class="year-menu">
       <b>Año:</b>
       <button onclick="window.location.href='mapa_distritos_no_residentes_2022.html'" >2022</button>
