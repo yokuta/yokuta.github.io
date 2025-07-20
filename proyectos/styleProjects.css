@@ -403,3 +403,14 @@ ul {
 }
 
 
+
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+}
+
+.carousel-track a {
+  flex: 0 0 100%;
+}
