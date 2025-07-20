@@ -102,12 +102,26 @@
   <div class="content">
     <main>
       <section>
-        <h2 class="titulo-ancho">¿Quién viene a la Semana Grande? Un vistazo a la movilidad en Santander</h2>
-        <p>Con la llegada de la Semana Grande de Santander, las calles se llenan de vida, música y visitantes...</p>
-        <p>Para ello, he analizado los desplazamientos hacia Cantabria durante los fines de semana clave...</p>
-        <p>Los resultados se muestran en <strong>mapas interactivos</strong> que permiten explorar...</p>
-        <p>También he examinado la movilidad <strong>dentro del propio municipio de Santander</strong>...</p>
-        <p>Todo este análisis se ha traducido en <strong>mapas interactivos</strong> que puedes consultar...</p>
+        <h2 class="titulo-ancho">¿Quién viene a la Semana Grande? Un vistazo a la movilidad en Santander</h2>	
+		<p>
+          Con la llegada de la Semana Grande de Santander, las calles se llenan de vida, música y visitantes. Pero ¿alguna vez te has preguntado cuánta gente realmente llega a Cantabria durante esos días? ¿Desde dónde vienen? ¿Y cuántos se quedan a dormir en la ciudad? En este proyecto he querido responder a esas preguntas con datos reales.
+        </p>
+
+        <p>
+          Para ello, he analizado los desplazamientos hacia Cantabria durante los fines de semana clave de la Semana Grande, viernes y sábados, de los años <strong>2022, 2023 y 2024</strong>. Utilizando datos de telefonía móvil del <strong>Ministerio de Transportes</strong>, he extraído información sobre las <strong>pernoctaciones registradas por provincia</strong> en esas fechas concretas.
+        </p>
+
+        <p>
+          Los resultados se muestran en <strong>mapas interactivos</strong> que permiten explorar, año a año, cuántas personas viajan desde cada provincia para disfrutar de las fiestas. Uno de los datos más sorprendentes es que <strong>Madrid supera los 80.000 visitantes</strong> durante los días clave, la única provincia que supera este número es Vizcaya, debido a su cercanía geográfica con Cantabria.
+        </p>
+
+        <p>
+          También he examinado la movilidad <strong>dentro del propio municipio de Santander</strong>, desglosando los datos por <strong>distritos</strong>. Así, puedes ver qué porcentaje de las personas que pernoctan en cada zona realmente <em>no viven</em> allí. El caso más llamativo es el del <strong>Sardinero</strong>, donde  <strong>1 de cada 3 personas</strong> que pernoctan en este distrito durante la Semana Grande no residian en el distrito. Algo lógico, si pensamos que ahí se concentra buena parte de la programación festiva.
+        </p>
+
+        <p>
+          Todo este análisis se ha traducido en <strong>mapas interactivos</strong> que puedes consultar libremente para explorar estos patrones de movilidad por año, provincia o distrito. A continuación, puedes hacer clic en las imágenes para verlos en detalle:
+        </p>
 
         <div class="carousel-wrapper">
           <button class="carousel-btn left" onclick="scrollCarousel(-1)">‹</button>
@@ -128,8 +142,13 @@
           </div>
         </div>
 
-        <p>Estos datos provienen de los <strong>ficheros diarios de pernoctaciones</strong> recogidos a través de telefonía móvil por el <strong>Ministerio de Transportes y Movilidad Sostenible</strong>...</p>
-        <p>Esta herramienta se actualizará cuando se publiquen los datos correspondientes a la Semana Grande de <strong>2025</strong>...</p>
+        <p>
+          Estos datos provienen de los <strong>ficheros diarios de pernoctaciones</strong> recogidos a través de telefonía móvil por el <strong>Ministerio de Transportes y Movilidad Sostenible</strong>, filtrados por fecha, provincia de origen y municipio de destino. Los análisis se han realizado utilizando Python para el procesamiento de datos y visualización con herramientas interactivas como <em>Leaflet</em> y <em>D3.js</em>.
+        </p>
+
+        <p>
+          Esta herramienta se actualizará cuando se publiquen los datos correspondientes a la Semana Grande de <strong>2025</strong>. Gracias a la estructura modular del código y la consulta programada al portal de datos abiertos del ministerio, la integración de los nuevos ficheros permitirá extender el análisis sin alterar la base del proyecto.
+        </p>
       </section>
       <div class="project-links">
         <a href="https://github.com/tuusuario/repositorio-santander" target="_blank">
