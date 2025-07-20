@@ -49,6 +49,25 @@
           Todo este análisis se ha traducido en <strong>mapas interactivos</strong> que puedes consultar libremente para explorar estos patrones de movilidad por año, provincia o distrito. A continuación, puedes hacer clic en las imágenes para verlos en detalle:
         </p>
         <!-- GALERÍA CON ENLACES -->
+         <div class="carousel-wrapper">
+          <button class="carousel-btn left" onclick="scrollCarousel(-1)">‹</button>
+          <div class="carousel-container">
+            <div class="carousel-track" id="carouselTrack">
+              <a href="https://tuenlacealmapa.com/mapa-provincias" target="_blank">
+                <img src="../imagenes/santander_mapa_provincias.jpg" alt="Mapa provincias">
+              </a>
+              <a href="https://tuenlacealmapa.com/mapa-distritos" target="_blank">
+                <img src="../imagenes/santander_mapa_distritos.jpg" alt="Mapa distritos">
+              </a>
+            </div>
+          </div>
+          <button class="carousel-btn right" onclick="scrollCarousel(1)">›</button>
+        
+          <div class="carousel-indicators">
+            <span class="indicator active" onclick="goToSlide(0)"></span>
+            <span class="indicator" onclick="goToSlide(1)"></span>
+          </div>
+        </div>
         <div class="image-gallery">
           <a href="https://yokuta.github.io/proyectos/Santander/mapa_2022.html" target="_blank">
             <img src="/imagenes/proyectos/santandermapa1.png" alt="Vista general del mapa interactivo 1" style="max-width: 100%; border-radius: 8px; margin: 1rem 0;">
@@ -61,7 +80,8 @@
           [Aquí puedes explicar detalles técnicos o decisiones de diseño: qué datos se visualizan, cómo se interactúa con el mapa, si tiene filtros por tipo de evento, horarios, etc.]
         </p>
         <p>Todo el proyecto está disponible en mi repositorio de GitHub:</p>
-        <a href="https://github.com/tuusuario/repositorio-santander" target="_blank">Ver código en GitHub</a>
+
+        <!-- <a href="https://github.com/tuusuario/repositorio-santander" target="_blank">Ver código en GitHub</a> -->
       </section>
 
       <div class="project-links">
@@ -108,3 +128,33 @@
   </script>
 </body>
 </html>
+
+
+<script>
+  let currentSlide = 0;
+  const totalSlides = 2; // Solo hay 2 imágenes
+  const track = document.getElementById('carouselTrack');
+  const indicators = document.querySelectorAll('.indicator');
+
+  function updateCarousel() {
+    const translateX = -currentSlide * 100;
+    track.style.transform = `translateX(${translateX}%)`;
+
+    indicators.forEach((indicator, index) => {
+      indicator.classList.toggle('active', index === currentSlide);
+    });
+  }
+
+  function scrollCarousel(direction) {
+    currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+    updateCarousel();
+  }
+
+  function goToSlide(index) {
+    currentSlide = index;
+    updateCarousel();
+  }
+
+  // Opcional: auto scroll
+  // setInterval(() => scrollCarousel(1), 6000);
+</script>
