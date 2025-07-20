@@ -51,20 +51,48 @@
 
         
     
-                    <style>
-                        .foliumtooltip {
-                            
-                        }
-                       .foliumtooltip table{
-                            margin: auto;
-                        }
-                        .foliumtooltip tr{
-                            text-align: left;
-                        }
-                        .foliumtooltip th{
-                            padding: 2px; padding-right: 8px;
-                        }
-                    </style>
+            <style>
+                .foliumtooltip {
+                    
+                }
+               .foliumtooltip table{
+                    margin: auto;
+                }
+                .foliumtooltip tr{
+                    text-align: left;
+                }
+                .foliumtooltip th{
+                    padding: 2px; padding-right: 8px;
+                }
+
+
+                .top-bar {
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  padding: 1rem;
+                  position: relative;
+                }
+                
+                .home-icon {
+                  position: absolute;
+                  top: 1rem;
+                  right: 1rem;
+                  z-index: 10000;
+                }
+                
+                .home-img {
+                  width: 32px;
+                  height: 32px;
+                  transition: transform 0.3s ease;
+                }
+                
+                .home-img:hover {
+                  transform: scale(1.1);
+                }
+
+
+            </style>
             
 </head>
 <body>
@@ -114,7 +142,7 @@
       left: 60px;
       z-index: 9999;
       background-color: white;
-      padding: 10px;option
+      padding: 10px;
       border: 1px solid #ccc;
       font-family: Arial, sans-serif;
     }
@@ -133,6 +161,12 @@
       font-weight: bold;
     }
     </style>
+    <div class="home-icon">
+      <a href="https://yokuta.github.io/proyectos/proyectoSantanderSemanaGrande.html" title="Inicio">
+        <img src="../imagenes/housee.png" alt="Inicio" class="home-img">
+      </a>
+    </div>
+
 
     <div class="year-menu">
       <b>Año:</b>
